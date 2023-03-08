@@ -9,7 +9,6 @@ fetch('http://localhost:5678/api/works')
 		htmlproject += `<figure>
 					<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
 					<figcaption>${element.title}</figcaption>
-					
 					</figure>`
 					
 	}))
