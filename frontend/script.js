@@ -1,11 +1,11 @@
 let htmlProject = '';
 /*
-appel à l'api pas besoin d'un let ou const si on fait dynamiquement à la palce on a les variable dans les promesses
+appel à l'api pas besoin d'un let ou const si on fait dynamiquement à la palce on a les variable dans les promesses*/
 fetch('http://localhost:5678/api/works')
-creation d'un json avec objet; then c'est quand j'ai une reponse
+/*creation d'un json avec objet; then c'est quand j'ai une reponse*/
 	.then((response) => response.json())
-	maintenant on a la reponse on appele l'array avec son nom de variable ici data qui est donc un array json ici c'est des objets chacun
-	ont deux propriété utilisé ici imgurl et title
+	/*maintenant on a la reponse on appele l'array avec son nom de variable ici data qui est donc un array json ici c'est des objets chacun
+	ont deux propriété utilisé ici imgurl et title*/
 	.then((data) => data.forEach(element => {
 		htmlProject += `<figure>
 					<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
@@ -13,9 +13,9 @@ creation d'un json avec objet; then c'est quand j'ai une reponse
 					</figure>`
 					
 	}))
-	une fois avoir check chaque elelemtn de l'array on va les récupéré pour les update dans le dom ici comme on demande une classe faut préciser quel ellement de cette classe ici le premier donc l'element 0
-	.then(() => document.getElementsByClassName('gallery').item(0).innerHTML = htmlProject);
-
+	/*une fois avoir check chaque elelemtn de l'array on va les récupéré pour les update dans le dom ici comme on demande une classe faut préciser quel ellement de cette classe ici le premier donc l'element 0
+	*/.then(() => document.getElementsByClassName('gallery').item(0).innerHTML = htmlProject);
+/*
 idée pour le filtre avoir un bouton qui demande ce que l'on veut ( trois options) apèrs la ligne 5 faire un if else:
 if 1 === true { data.categoryID.forEach et rajouter tout le reste } le if aura deux autres conditions pour le moment 2 === true et 3 === true correspondant aux ID indiqué sur l'API
 penser à rajouter 4 boutons pour les filtres du coup
@@ -26,17 +26,21 @@ let buttonObjetcs = false;
 let buttonAppartements = false;
 let buttonHotelRest = false;
 
+let all = document.getElementById("all")
+let objects = document.getElementById("objects")
+let appartements = document.getElementById("appartements")
+let hotel = document.getElementById("hotelAndRestaurant")
 
+all.addEventListener('click', activeAll, display)
+objects.addEventListener('click',active1, display)
+appartements.addEventListener('click',active2, display)
+hotel.addEventListener('click', active3, display)
 
 function activeAll(){
-	if (buttonAll === true) {
-		buttonAll = false;
-	} else {
 		buttonAll = true;
 		buttonObjetcs = false;
 		buttonAppartements = false;
 		buttonHotelRest = false;
-	}
 }
 
 function active1(){
@@ -92,7 +96,6 @@ function display(){
 						</figure>`				
 		}))
 			.then(() => document.getElementsByClassName('gallery').item(0).innerHTML = htmlProject);
-
 	} else if (buttonAppartements === true && buttonHotelRest === true && buttonObjetcs === false){
 		fetch('http://localhost:5678/api/works')
 		.then((response) => response.json())
