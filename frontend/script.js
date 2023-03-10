@@ -100,7 +100,7 @@ function display(){
 		fetch('http://localhost:5678/api/works')
 		.then((response) => response.json())
 		.then((data) => data.forEach(element => {
-			if ( element.id === 2 || element.id === 3 ){
+			if ( element.categoryId === 2 || element.categoryId === 3 ){
 				htmlProject += `<figure>
 						<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
 						<figcaption>${element.title}</figcaption>
@@ -111,7 +111,7 @@ function display(){
 		fetch('http://localhost:5678/api/works')
 		.then((response) => response.json())
 		.then((data) => data.forEach(element => {
-			if ( element.id === 2 || element.id === 1 ){
+			if ( element.categoryId === 2 || element.categoryId === 1 ){
 				htmlProject += `<figure>
 						<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
 						<figcaption>${element.title}</figcaption>
@@ -122,7 +122,7 @@ function display(){
 		fetch('http://localhost:5678/api/works')
 		.then((response) => response.json())
 		.then((data) => data.forEach(element => {
-			if ( element.id === 3 || element.id === 1 ){
+			if ( element.categoryId === 3 || element.categoryId === 1 ){
 				htmlProject += `<figure>
 						<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
 						<figcaption>${element.title}</figcaption>
@@ -133,7 +133,7 @@ function display(){
 		fetch('http://localhost:5678/api/works')
 		.then((response) => response.json())
 		.then((data) => data.forEach(element => {
-			if (element.id === 1 ){
+			if (element.categoryId === 1 ){
 				htmlProject += `<figure>
 						<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
 						<figcaption>${element.title}</figcaption>
@@ -144,7 +144,7 @@ function display(){
 		fetch('http://localhost:5678/api/works')
 		.then((response) => response.json())
 		.then((data) => data.forEach(element => {
-			if (element.id === 3 ){
+			if (element.categoryId === 3 ){
 				htmlProject += `<figure>
 						<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
 						<figcaption>${element.title}</figcaption>
@@ -155,7 +155,7 @@ function display(){
 		fetch('http://localhost:5678/api/works')
 		.then((response) => response.json())
 		.then((data) => data.forEach(element => {
-			if (element.id === 2 ){
+			if (element.categoryId === 2 ){
 				htmlProject += `<figure>
 						<img src="${element.imageUrl}" foo="bar" alt="${element.title}">
 						<figcaption>${element.title}</figcaption>
