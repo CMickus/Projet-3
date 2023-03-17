@@ -1,5 +1,5 @@
 
-function changeValue (bool){
+export function changeValue (bool){
     bool = !bool
     console.log(bool)
 }
@@ -29,11 +29,11 @@ function filter(i){
                 .then((response) => response.json())
                 .then((data) => {
                     let htmlProject = '';
-                    data.forEach((datas) =>{
-                        if (datas.id == i){
+                    data.forEach((data) =>{
+                        if (data.numb == i){
                             htmlProject += `<figure>
-                            <img src="${project.imageUrl}" foo="bar" alt="${project.title}">
-                            <figcaption>${project.title}</figcaption>
+                            <img src="${data.imageUrl}" foo="bar" alt="${data.title}">
+                            <figcaption>${data.title}</figcaption>
                             </figure>`;
                         }
                     })
@@ -48,7 +48,18 @@ export function filterdisplay(){
         filter(i);
     }
 }
+
+export function activeAll(){
+    buttonAll.value = true;
+    buttonObjetcs.value = false;
+    buttonAppartements.value = false;
+    buttonHotelRest.value = false;
+    console.log(buttonAll.value,buttonAppartements.value,buttonObjetcs.value,buttonHotelRest.value)
+}
+
 export default{
-    setOfData,
     active,
+    filterdisplay,
+    activeAll,
+    changeValue,
 }

@@ -1,10 +1,10 @@
 import Display from './lib/display.js';
 /*import RequestAPI from './lib/requestAPI.js';*/
-/*import Filter from './lib/filters.js';*/
+import Filter, { changeValue } from './lib/filters.js';
 
 function initialisation (){
 
-let htmlProject = '';
+/*let htmlProject = '';*/
 /*
 appel à l'api pas besoin d'un let ou const si on fait dynamiquement à la palce on a les variable dans les promesses*/
 fetch('http://localhost:5678/api/works')
@@ -22,45 +22,38 @@ fetch('http://localhost:5678/api/works')
 fetch('http://localhost:5678/api/categories')
 	.then((response) => response.json())
 	.then((data) => {
+		console.log(data)
 		Display.categoryFilters(data)
 	})
 
 let buttonAll ={
 	value:  true,
-	id: all,
+	numb: 0,
 }
-
 let buttonObjetcs ={
 	value:  false,
-	id: 1,
+	numb: 1,
 }
 let buttonAppartements ={
 	value:  false,
-	id: 2,
+	numb: 2,
 }
 let buttonHotelRest ={
 	value:  false,
-	id: 3,
+	numb: 3,
 }
 
-
-let all = document.getElementById("all")
+let allButton = document.getElementById("allButton")
 let objects = document.getElementById("1")
 let appartements = document.getElementById("2")
 let hotel = document.getElementById("3")
 
-all.addEventListener('click', activeAll)
-objects.addEventListener('click',Filter.active, display)
-appartements.addEventListener('click',Filter.active, display)
-hotel.addEventListener('click',Filter.active, display)
+allButton.addEventListener('click', Display.showCardProject)
+objects.addEventListener('click',Filter.active, Filter.filterdisplay)
+appartements.addEventListener('click',Filter.active, Filter.filterdisplay)
+hotel.addEventListener('click',Filter.active, Filter.filterdisplay)
 
-function activeAll(){
-		buttonAll.value = true;
-		buttonObjetcs.value = false;
-		buttonAppartements.value = false;
-		buttonHotelRest.value = false;
-		console.log(buttonAll.value,buttonAppartements.value,buttonObjetcs.value,buttonHotelRest.value)
-}
+changeValue(buttonHotelRest)
 
 }
 

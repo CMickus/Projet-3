@@ -11,9 +11,9 @@ export function showCardProject(projects){
 }
 
 export function categoryFilters(filters){
-    let htmlFilter = '<button id="all" type="button">Tous</button>';
-    filters.forEach((category) =>{
-        htmlFilter += `<button id="${category.id}" type="button">${category.name}</button>`;
+    let htmlFilter = `<button id="allButton" type="button">Tous</button>`;
+    filters.forEach((filter) =>{
+        htmlFilter += `<button id="${filter.id}" type="button">${filter.name}</button>`;
     })
     document.querySelector('.filters').innerHTML = htmlFilter;
 }
