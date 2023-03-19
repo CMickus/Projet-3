@@ -1,6 +1,5 @@
 export function showCardProject(projects){
     let htmlProject = '';
-    /*convention d'ecriture "(projects)" au cas ou j'ai plusieurs valeurs*/
     projects.forEach((project) => {
     htmlProject += `<figure>
     <img src="${project.imageUrl}" foo="bar" alt="${project.title}">

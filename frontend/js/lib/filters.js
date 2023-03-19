@@ -1,4 +1,4 @@
-
+import RequestAPI from './requestAPI.js';
 export function changeValue (bool){
     bool = !bool
     console.log(bool)
@@ -22,14 +22,13 @@ export function active(){
 }
 
 
-function filter(i){
+async function filter(i,buttonObjetcs,buttonAppartements,buttonHotelRest){
     const allButton = [buttonObjetcs, buttonAppartements, buttonHotelRest];
+    const  projects = await RequestAPI.get('http://localhost:5678/api/works')
+    console.log(projects)
         if(allButton[(i - 1)].value == true){
-            fetch('http://localhost:5678/api/categories')
-                .then((response) => response.json())
-                .then((data) => {
                     let htmlProject = '';
-                    data.forEach((data) =>{
+                    projects.forEach((project) =>{
                         if (data.numb == i){
                             htmlProject += `<figure>
                             <img src="${data.imageUrl}" foo="bar" alt="${data.title}">
@@ -38,14 +37,14 @@ function filter(i){
                         }
                     })
                 document.querySelector('.gallery').innerHTML = htmlProject;
-                })
         }
 }
 
-export function filterdisplay(){
-    const itemfilter = document.querrySelector("filters").childElementCount
-    for (i = 1; i < itemfilter; i++){
-        filter(i);
+
+export function filterdisplay(buttonObjetcs,buttonAppartements,buttonHotelRest){
+    const itemfilter = document.querySelector('.filters').childElementCount
+    for (let i = 1; i < itemfilter; i++){
+        filter(i,buttonObjetcs,buttonAppartements,buttonHotelRest);
     }
 }
 

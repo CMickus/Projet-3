@@ -3,7 +3,6 @@ export async function get(url) {
         const response = await fetch(url);
         if (response.status === 200) {
             return await response.json();
-            /*return sort complètement de la fonction*/
         }
         return -1;
     } catch (exception) {
