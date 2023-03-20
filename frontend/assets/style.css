@@ -3,6 +3,37 @@
    License: none (public domain)
 */
 
+.hidden{
+	display:none;
+}
+
+.filters{
+	display: flex;
+	justify-content: center;
+	margin: 51px;
+	gap: 2%;
+}
+
+.buttonstyle{
+	border-radius: 20px;
+	border:#1D6154 solid 2px;
+	font-size: 1.2em;
+	color: #1D6154;
+	background-color: white;
+	padding: 10px;
+}
+
+#allButton{
+	background-color: #1D6154;
+	color: white;
+}
+
+.buttonstyle:hover{
+	background-color: #1D6154;
+	color: white;
+}
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,

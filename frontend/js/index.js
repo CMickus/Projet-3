@@ -15,35 +15,14 @@ const filtres = await RequestAPI.get('http://localhost:5678/api/categories');
 console.log(filtres);
 Display.categoryFilters(filtres);
 
-let buttonAll ={
-	value:  true,
-	numb: 0,
-}
-let buttonObjetcs ={
-	value:  false,
-	numb: 1,
-}
-let buttonAppartements ={
-	value:  false,
-	numb: 2,
-}
-let buttonHotelRest ={
-	value:  false,
-	numb: 3,
-}
-
 let allButton = document.getElementById("allButton")
-let objects = document.getElementById("1")
-let appartements = document.getElementById("2")
-let hotel = document.getElementById("3")
+filtres.forEach((filtre) => {
+	let button = document.getElementById(filtre.id)
+	button.addEventListener('click',() => Filter.filter(button))
+})
+allButton.addEventListener('click',() => Display.showCardProject(projects))
+allButton.addEventListener('click',Filter.activeAll)
 
-allButton.addEventListener('click', Display.showCardProject)
-objects.addEventListener('click',Filter.active, Filter.filterdisplay)
-appartements.addEventListener('click',Filter.active, Filter.filterdisplay)
-hotel.addEventListener('click',Filter.active, Filter.filterdisplay)
-
-Filter.changeValue(buttonHotelRest)
-Filter.filterdisplay()
 }
 
 initialisation();

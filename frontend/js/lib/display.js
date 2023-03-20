@@ -1,8 +1,8 @@
 export function showCardProject(projects){
     let htmlProject = '';
     projects.forEach((project) => {
-    htmlProject += `<figure>
-    <img src="${project.imageUrl}" foo="bar" alt="${project.title}">
+    htmlProject += `<figure categoryId="${project.categoryId}">
+    <img src="${project.imageUrl}" alt="${project.title}">
     <figcaption>${project.title}</figcaption>
     </figure>`;
 })
@@ -10,9 +10,9 @@ export function showCardProject(projects){
 }
 
 export function categoryFilters(filters){
-    let htmlFilter = `<button id="allButton" type="button">Tous</button>`;
+    let htmlFilter = `<button id="allButton" active="true" class="buttonstyle" type="button">Tous</button>`;
     filters.forEach((filter) =>{
-        htmlFilter += `<button id="${filter.id}" type="button">${filter.name}</button>`;
+        htmlFilter += `<button id="${filter.id}" active="false" class="buttonfilter, buttonstyle" type="button">${filter.name}</button>`;
     })
     document.querySelector('.filters').innerHTML = htmlFilter;
 }
