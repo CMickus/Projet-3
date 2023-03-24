@@ -1,42 +1,49 @@
 import RequestAPI from './requestAPI.js';
-export function changeValue(buttonElem) {
-    const isActive = buttonElem.getAttribute("active")
-    buttonElem.setAttribute("active", !isActive)
+export function changeValue(button) {
+    button.classList.toggle('active');
 }
 
+/*essayer avec un classList.toggle(active) plutot*/
+
 export function active(button) {
-    console.log(button.getAttribute("active"))
-    const count = document.querySelectorAll("button[active='true']").length
-    const buttoncount = document.querySelectorAll(".buttonfilter").length
-    console.log(count)
-    if (document.getElementById("allButton").getAttribute("active") === true) {
+    console.log(button.className);
+    const buttonAll= document.getElementById('0');
+    const count = document.querySelectorAll(".active").length;
+    console.log(count);
+    const buttoncount = document.querySelectorAll(".buttonfilter").length;
+    console.log(buttoncount)
+    if (count === buttoncount - 1) {
+        activeAll();
+    } else if (button.className != "active" && buttonAll.className === "active") {
         changeValue(button);
-        changeValue(document.getElementById("allButton"));
-    } else if (count === buttoncount-1) {
-        activeAll()
+        changeValue(buttonAll);
     } else {
         changeValue(button);
     }
-    filter(button)
 }
 
-
+/*
 export function filter(button) {
-    document.querySelectorAll('figure[categoryId~="' + button.getAttribute('id').toString() + '"]')
-        .forEach(element => {
-            element.classList.toggle('hidden')})
+        button.classList.toggle('active')
     };
-
+*/
 
 export function activeAll() {
-    document.querySelectorAll(".buttonfilter").forEach((element) => element.setAttribute("active", false));
-    document.getElementById("allButton").setAttribute("active", true);
-    
+    document.querySelectorAll(".buttonfilter").forEach((element) => {
+        /*const itemClass = element.className*/
+        if (element.className === "active") {
+            element.classList.toggle('active');
+        }
+    },)
+    const allActive = document.getElementById("0")
+    if (allActive.className != 'active'){
+        changeValue(allActive);
+    }
 }
 
 export default {
     active,
-    filter,
+    /*filter,*/
     activeAll,
     changeValue,
 }

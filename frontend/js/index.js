@@ -1,34 +1,82 @@
 import Display from './lib/display.js';
 import RequestAPI from './lib/requestAPI.js';
-import Filter, { changeValue } from './lib/filters.js';
+import Filter, { active, activeAll, changeValue } from './lib/filters.js';
 
-async function initialisation (){
-const projects = await  RequestAPI.get('http://localhost:5678/api/works');
-console.log(projects)
-if (projects === -1){
-	alert('Server Out!');
-	return
+async function initialisation() {
+	const projects = await RequestAPI.get('http://localhost:5678/api/works');
+	/*console.log(projects)*/
+	if (projects === -1) {
+		alert('Server Out!');
+		return
+	}
+	Display.showCardProject(projects);
+
+	const filtres = await RequestAPI.get('http://localhost:5678/api/categories');
+	const category = [
+		{ id: 0, name: 'Tous' },
+		...filtres
+	]
+	/*console.log(category);*/
+	Display.categoryFilters(category);
+	/*
+	category.forEach((filtre) => {
+		let button = document.getElementById(filtre.id)
+		button.addEventListener('click',() => Filter.filter(button,projects))
+	})
+	allButton.addEventListener('click',() => Display.showCardProject(projects))*/
+	document.querySelector('.filters').addEventListener('click', (event) => {
+		const button = event.target;
+		let projectfilter = '';
+		/*propagation des evenements check doc*/
+		if (button.nodeName === 'BUTTON') {
+			const id = parseInt(button)
+			if (id !=0){
+				Filter.active(button);
+			}
+			if ( 0 === 0){
+				projectfilter = projects;
+				Filter.activeAll();
+			} else {
+			document.querySelectorAll('.buttonstyle').forEach((filterbutton) => {
+				const filterid = parseInt(filterbutton.id);
+				if (filterbutton.className === 'active'){
+					projectfilter += projects.filter((project)=> project.categoryId === filterid)
+				}
+				})
+				console.log(projectfilter)
+			}
+			Display.showCardProject(projectfilter);
+			/*const id = parseInt(button.id);*/
+			/*const gallery = document.querySelector(".gallery")
+			gallery.forEach()*/
+			/*const buttons = document.querySelector('.filters')
+			console.log(buttons)
+			buttons*/
+			/*if (id === 0) {
+				projectfilter = projects;
+				Filter.activeAll();
+			} else if (id > 0) {
+				Filter.active(button);
+				const gallery = document.querySelector(".gallery")
+				document.querySelectorAll('.filters').forEach((element) => {
+					const elemId = parseInt(element.id)
+					console.log(elemId)
+					if (element.className === "active") {
+						/*projectfilter += projects.forEach((project) => project.categoryId === elemId);
+						projectfilter += projects.filter(project=> project.categoryId === elemId);
+					} 
+				})
+			}*/
+			/*projectfilter = projects.filter((project)=> project.categoryId === id);*/
+		}
+	}
+	)
 }
-Display.showCardProject(projects);
-
-const filtres = await RequestAPI.get('http://localhost:5678/api/categories');
-console.log(filtres);
-Display.categoryFilters(filtres);
-
-let allButton = document.getElementById("allButton")
-filtres.forEach((filtre) => {
-	let button = document.getElementById(filtre.id)
-	button.addEventListener('click',() => Filter.filter(button))
-})
-allButton.addEventListener('click',() => Display.showCardProject(projects))
-allButton.addEventListener('click',Filter.activeAll)
-
-}
-
+/*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();
 
 /* concept DRY don't repeat yourself KISS keep it simple and stupid*/
-/* single responsability les fichier n'ont qu'une seule responsabilité*/ 
+/* single responsability les fichier n'ont qu'une seule responsabilité*/
 /*
 let htmlProject = '';
 
