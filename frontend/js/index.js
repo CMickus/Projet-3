@@ -1,6 +1,6 @@
 import Display from './lib/display.js';
 import RequestAPI from './lib/requestAPI.js';
-import Filter, { active, activeAll, changeValue } from './lib/filters.js';
+import Filter, { active, activeAll} from './lib/filters.js';
 
 async function initialisation() {
 	const projects = await RequestAPI.get('http://localhost:5678/api/works');
@@ -26,21 +26,27 @@ async function initialisation() {
 	allButton.addEventListener('click',() => Display.showCardProject(projects))*/
 	document.querySelector('.filters').addEventListener('click', (event) => {
 		const button = event.target;
-		let projectfilter = '';
+		let projectfilter = [];
 		/*propagation des evenements check doc*/
+		console.log(button.nodeName)
 		if (button.nodeName === 'BUTTON') {
-			const id = parseInt(button)
+			const id = parseInt(button.id)
+			console.log(button)
+			console.log(id)
 			if (id !=0){
 				Filter.active(button);
-			}
-			if ( 0 === 0){
-				projectfilter = projects;
+			} else {
 				Filter.activeAll();
+			}
+			if (document.getElementById('0').classList.contains('active')){
+				projectfilter = projects;
+				/*Filter.activeAll();*/
 			} else {
 			document.querySelectorAll('.buttonstyle').forEach((filterbutton) => {
 				const filterid = parseInt(filterbutton.id);
-				if (filterbutton.className === 'active'){
-					projectfilter += projects.filter((project)=> project.categoryId === filterid)
+				console.log(filterid)
+				if (filterbutton.classList.contains('active')){
+					projectfilter = projectfilter.concat(projects.filter((project)=> project.categoryId === filterid));
 				}
 				})
 				console.log(projectfilter)
