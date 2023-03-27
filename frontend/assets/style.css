@@ -3,8 +3,33 @@
    License: none (public domain)
 */
 
-.hidden{
-	display:none;
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.login{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 5%; 
+	width: 100%;
+	height: 500px;
+}
+
+.loginButton{
+	border-radius: 20px;
+	border:#1D6154 solid 2px;
+	font-size: 1.2em;
+	color: white;
+	background-color: #1D6154;
+	padding: 10px;
+}
+
+.infoLogin{
+	display: flex;
+	flex-direction: column;
 }
 
 .filters{
