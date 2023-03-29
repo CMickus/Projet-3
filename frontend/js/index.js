@@ -77,6 +77,27 @@ async function initialisation() {
 		}
 	}
 	)
+
+	document.querySelector('.loginButton').addEventListener('click',async () => {
+		const user = { email: document.getElementById('username').value,
+			password: document.getElementById('password').value,}
+
+		const reponse = await requestAPI.get('http://localhost:5678/api/users/login');
+		
+		/*
+		let response = await fetch('http://localhost:5678/api/users/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json;charset=utf-8'
+			},
+			body: JSON.stringify(user)
+			});*/
+			/*
+			if ( user === "sophie.bluel@test.tld" && password ==="S0phie"){
+				alert("Connecting");
+				document.location = "./index.html"
+			}*/
+	})
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,24 +14,24 @@
         <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
         <nav>
             <ul>
-                <li>projets</li>
+                <li><a href="./index.html">projets</a></li>
                 <li>contact</li>
                 <li>login</li>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
     </header>
-    <form action="" method="post" class="login">
+    <form method="post" class="login">
         <h1 class="loginTitle">Login</h1>
         <div class="infoLogin">
             <label for="E-mail">E-mail</label>
-            <input type="text" name="email" id="email" class="textLogin" required>
+            <input type="email" name="email" id="email" class="textLogin" required>
         </div>
         <div class="infoLogin">
             <label for="password">Mot de Passe</label>
-            <input type="email" name="password" id="password" class="textLogin" required>
+            <input type="password" name="password" id="password" class="textLogin" required>
         </div>
-        <button formaction="" class="loginButton">Se connecter</button>
+        <button formaction="./index.html" class="loginButton">Se connecter</button>
         <a href="#" class="forgottenPassword">Mot de passe oublié</a>
     </form>
     <footer>
@@ -40,6 +40,7 @@
                 <li>Mentions Légales</li>
             </ul>
         </nav>
-    </footer>    
+    </footer>
+    <script src="./js/index.js" type="module"></script>    
 </body>
 </html>
