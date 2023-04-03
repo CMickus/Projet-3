@@ -1,6 +1,7 @@
 import Display from './lib/display.js';
 import RequestAPI from './lib/requestAPI.js';
 import Filter, { active, activeAll} from './lib/filters.js';
+import requestAPI from './lib/requestAPI.js';
 
 async function initialisation() {
 	const projects = await RequestAPI.get('http://localhost:5678/api/works');
@@ -78,12 +79,50 @@ async function initialisation() {
 	}
 	)
 
-	document.querySelector('.loginButton').addEventListener('click',async () => {
+	document.querySelector('.loginButton').addEventListener('click', async (event) => {
+		event.preventDefault();
 		const user = { email: document.getElementById('username').value,
-			password: document.getElementById('password').value,}
+			password: document.getElementById('password').value,};
 
-		const reponse = await requestAPI.get('http://localhost:5678/api/users/login');
+		const result = await requestAPI.post('http://localhost:5678/api/users/login',user);
+		console.log(result);
+		if(result === -1){
+			alert('Email ou mot de passe incorrect');
+		} else {
+			window.localStorage(result);
+			window.location('./index.html');
+		}
+	})
+		/*
+		fetch('http://localhost:5678/api/users/login',{
+			method: "POST",
+			headers: {/*il décrit dans la partie http ce qui se passe en get on a pas besoin de le préciser
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(user), body pour le contenu du post et stringyfy puisque http connais que string et binnaire*/
 		
+		//on veut qu'il renvoit un jwt json web token si c'est bon il renvoit 200 avec le token (jwt) c'est la clef de sécurité
+		// il faudra le conserver pour pouvoir modifer les projets ajout et suppression 
+		//conservation du token via local storage check ce que c'est 
+		//creer dans requestapi une fonciton post dans le meme model que le get mais avec un body qui existe
+			/*.then((response) => response.json())
+			.then((user) =>{
+				alert("connecting")
+				document.location = "./index.html";
+			})
+			.catch((error) => {
+				alert("Email ou mot de passe incorrect")
+				console.log(error)
+			})
+			*/
+			/*comprendre comment sont traité les données ce qu'est la method post et a quoi sert le header 
+			method post envoi les données recueillies sur la page suivant pour le traitement des donnes (?)
+			JSON de ce que j'ai compris :
+			voir ce qu'il faut mettre dans content type 
+			je suppose qu'il faut comparer les données prises dans le formulaire avec chacun des des objet importés de l'api jusqu'a ce que ce soit compatible
+			une idée serait un async / await on récupère les données dans un premier temps puis on les utilise pour la comparaison a voir si c'est le plus optimal
+			necessite plus de connaissance sur methode post get et ce qu'est le JSON puisque les donnés lisible sur l'api sont difficile a comprendre^^" mais je suppose que le JSON. sert à "traduire" tout ça*/ 
+			/*demander comment on gère les fichier JS quand on a plusieurs fichers HTML ou bien on creer integralement le ficher html via du JS?*/
 		/*
 		let response = await fetch('http://localhost:5678/api/users/login', {
 			method: 'POST',
@@ -97,7 +136,6 @@ async function initialisation() {
 				alert("Connecting");
 				document.location = "./index.html"
 			}*/
-	})
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();
