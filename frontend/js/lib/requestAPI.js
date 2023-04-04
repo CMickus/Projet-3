@@ -29,5 +29,6 @@ export async function post(url, content){
 }
 
 export default{
-    get
+    get,
+    post,
 }
