@@ -11,10 +11,12 @@ export async function get(url) {
 }
 
 export async function post(url, content){
+    console.log(JSON.stringify(content))
     try{
         const response = await fetch(url,{
 			method: "POST",
 			headers: {
+                "accept": "application/json", 
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(content),
@@ -24,6 +26,7 @@ export async function post(url, content){
         }
         return -1;
     } catch (exception) {
+        console.log(exception);
         return -1;
     }
 }
