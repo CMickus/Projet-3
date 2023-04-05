@@ -48,8 +48,12 @@ async function initialisation() {
 	console.log(localStorage)
 	if (localStorage.getItem('userId') == '1') {
 		console.log('lol')
-		document.getElementById('connexion').innerHTML = '<a>logout</a>';
+		document.getElementById('connexion').innerHTML = '<a id="logout">logout</a>';
 	}
+	document.getElementById('logout').addEventListener('click', () => {
+		localStorage.clear('userid','token');
+		document.getElementById('connexion').innerHTML = '<a href="./login.html">login</a>';
+	})
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();
