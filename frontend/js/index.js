@@ -49,6 +49,26 @@ async function initialisation() {
 	if (localStorage.getItem('userId') == '1') {
 		console.log('lol')
 		document.getElementById('connexion').innerHTML = '<a id="logout">logout</a>';
+		function editionBar(){
+			const mainDiv = document.createElement('div');
+			const button = document.createElement('button');
+			const link = document.createElement('a');
+			const icon = document.createElement('i');
+			const buttonContent = document.createTextNode('publier les changements');
+			const linkContent = document.createTextNode('Mode édition');
+			icon.className = 'fa-regular fa-pen-to-square penIcon';
+			mainDiv.className = "editBar";
+			button.className = "publish";
+			link.className = "addProject";
+			button.appendChild(buttonContent);
+			link.appendChild(linkContent);
+			mainDiv.appendChild(icon);
+			mainDiv.appendChild(link);
+			mainDiv.appendChild(button);
+			const currentContent = document.getElementsByTagName("header");
+			document.body.prepend(mainDiv);
+		}
+		editionBar();
 	}
 	document.getElementById('logout').addEventListener('click', () => {
 		localStorage.clear('userid','token');
@@ -57,29 +77,3 @@ async function initialisation() {
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();
-
-/* concept DRY don't repeat yourself KISS keep it simple and stupid*/
-/* single responsability les fichier n'ont qu'une seule responsabilité*/
-/*
-let htmlProject = '';
-
-appel à l'api pas besoin d'un let ou const si on fait dynamiquement à la palce on a les variable dans les promesses
-fetch('http://localhost:5678/api/works')
-creation d'un json avec objet; then c'est quand j'ai une reponse
-	.then((response) => response.json())
-	maintenant on a la reponse on appele l'array avec son nom de variable ici data qui est donc un array json ici c'est des objets chacun
-	ont deux propriété utilisé ici imgurl et title
-	.then((data) => {
-			console.log(data)
-			Display.showCardProject(data)
-			/*on récupère la fonction d'un autre document et on l'utilise
-		}
-	)
-
-fetch('http://localhost:5678/api/categories')
-	.then((response) => response.json())
-	.then((data) => {
-		console.log(data)
-		Display.categoryFilters(data)
-	})
-*/

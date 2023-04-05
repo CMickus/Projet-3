@@ -75,6 +75,29 @@ a {
 	color: white;
 }
 
+.editBar{
+	height: 60px;
+	background-color: #000000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2%;
+}
+
+.penIcon{
+	color: white;
+}
+
+.addProject{
+	color: white;
+}
+
+.publish{
+	height: 40px;
+	width: 215px;
+	border-radius: 60px;
+}
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
