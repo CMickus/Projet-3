@@ -1,6 +1,6 @@
 import Display from './lib/display.js';
 import RequestAPI from './lib/requestAPI.js';
-import Filter, { active, activeAll} from './lib/filters.js';
+import Filter, { active, activeAll } from './lib/filters.js';
 
 async function initialisation() {
 	const projects = await RequestAPI.get('http://localhost:5678/api/works');
@@ -25,28 +25,31 @@ async function initialisation() {
 			const id = parseInt(button.id)
 			console.log(button)
 			console.log(id)
-			if (id !=0){
+			if (id != 0) {
 				Filter.active(button);
 			} else {
 				Filter.activeAll();
 			}
-			if (document.getElementById('0').classList.contains('active')){
+			if (document.getElementById('0').classList.contains('active')) {
 				projectfilter = projects;
 			} else {
-			document.querySelectorAll('.buttonstyle').forEach((filterbutton) => {
-				const filterid = parseInt(filterbutton.id);
-				console.log(filterid)
-				if (filterbutton.classList.contains('active')){
-					projectfilter = projectfilter.concat(projects.filter((project)=> project.categoryId === filterid));
-				}
+				document.querySelectorAll('.buttonstyle').forEach((filterbutton) => {
+					const filterid = parseInt(filterbutton.id);
+					console.log(filterid)
+					if (filterbutton.classList.contains('active')) {
+						projectfilter = projectfilter.concat(projects.filter((project) => project.categoryId === filterid));
+					}
 				})
 				console.log(projectfilter)
 			}
 			Display.showCardProject(projectfilter);
 		}
+	})
+	console.log(localStorage)
+	if (localStorage.getItem('userId') == '1') {
+		console.log('lol')
+		document.getElementById('connexion').innerHTML = '<a>logout</a>';
 	}
-	)
-
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();
