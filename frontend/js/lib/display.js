@@ -7,6 +7,7 @@ export function showCardProject(projects){
     </figure>`;
 })
     document.querySelector('.gallery').innerHTML = htmlProject;
+    document.querySelector('.projectPictures').innerHTML = htmlProject;
 }
 
 export function categoryFilters(filters){

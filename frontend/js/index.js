@@ -50,29 +50,77 @@ async function initialisation() {
 		console.log('lol')
 		document.getElementById('connexion').innerHTML = '<a id="logout">logout</a>';
 		function editionBar(){
-			const mainDiv = document.createElement('div');
+			const laDiv = `
+			<i class="fa-regular fa-pen-to-square penIcon"></i>
+			<a href="#modal" class="addProject modalScript">Mode édition</a>
+			<button class="publish">Publier les changements</button> 
+			`
+			/*const mainDiv = document.createElement('div');
 			const button = document.createElement('button');
-			const link = document.createElement('a');
+			//const link = document.createTextNode('a');
 			const icon = document.createElement('i');
 			const buttonContent = document.createTextNode('publier les changements');
-			const linkContent = document.createTextNode('Mode édition');
+			//const linkContent = document.createTextNode('Mode édition');
 			icon.className = 'fa-regular fa-pen-to-square penIcon';
 			mainDiv.className = "editBar";
 			button.className = "publish";
-			link.className = "addProject";
+			//link.setAttribute('href', "#modal");
+			//link.className = "addProject modalScript";
 			button.appendChild(buttonContent);
-			link.appendChild(linkContent);
+			//link.appendChild(linkContent);
 			mainDiv.appendChild(icon);
-			mainDiv.appendChild(link);
-			mainDiv.appendChild(button);
-			const currentContent = document.getElementsByTagName("header");
-			document.body.prepend(mainDiv);
+			//mainDiv.appendChild(link);
+			mainDiv.appendChild(button);*/
+			document.querySelector('.editBar').innerHTML = laDiv;
 		}
 		editionBar();
 	}
 	document.getElementById('logout').addEventListener('click', () => {
 		localStorage.clear('userid','token');
 		document.getElementById('connexion').innerHTML = '<a href="./login.html">login</a>';
+	})
+
+	let modal = null
+
+	function openModal  (event) {
+		event.preventDefault();
+		const target = document.querySelector(event.target.getAttribute('href'));
+		target.style.display = null;
+		target.removeAttribute('aria-hidden');
+		target.setAttribute('aria-modal', 'true');
+		modal = target;
+		modal.addEventListener('click', closeModal);
+		modal.querySelector('.modalCloseScript').addEventListener('click', closeModal);
+		modal.querySelector('.modalStopScript').addEventListener('click', stopPropagation);
+
+	}
+
+	function closeModal  (event) {
+		if (modal === null){
+			return
+		}
+		event.preventDefault();
+		modal.style.display = "none";
+		modal.setAttribute('aria-hidden', true);
+		modal.removeAttribute('aria-modal');
+		modal.removeEventListener('click', closeModal);
+		modal.querySelector('.modalCloseScript').removeEventListener('click', closeModal);
+		modal.querySelector('.modalStopScript').removeEventListener('click', stopPropagation);
+		modal = null;
+	}
+
+	function stopPropagation (event){
+		event.stopPropagation();
+	}
+
+	document.querySelectorAll('.modalScript').forEach(element =>{
+		element.addEventListener('click', openModal);
+	})
+
+	window.addEventListener('keydown', event => {
+		if (event.key === "Escape" || event.key === "ESC"){
+			closeModal(event);
+		}
 	})
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
