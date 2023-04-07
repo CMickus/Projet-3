@@ -16,13 +16,19 @@
 
 <body>
 	<div class="editBar"></div>
-	<aside id="modal" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
+	<aside id="modal" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false"
+		style="display: none;">
 		<div class="modalStyle modalStopScript">
-			<button class="modalCloseScript modalCloseStyle"><i class="fa-solid fa-xmark">Fermer la boite modale</i></button>
-			<h1>Galerie photo</h1>
+			<button class="modalCloseScript modalCloseStyle">
+				<i class="fa-solid fa-xmark"></i>
+				<span class="modalCloseText">Fermer la boitemodale</span>
+			</button>
+			<h1 class="modalTitle">Galerie photo</h1>
 			<div class="projectPictures"></div>
-			<button>Ajouter une photo</button>
-			<button>Supprimer la galerie</button>
+			<div class="modalButtons">
+				<button class="addPicture">Ajouter une photo</button>
+				<button class="deletePicture">Supprimer la galerie</button>
+			</div>
 		</div>
 	</aside>
 	<header>

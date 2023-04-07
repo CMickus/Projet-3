@@ -114,9 +114,12 @@ a {
 	background-color: white;
 	width: 630px;
 	height: 730px;
+	border-radius: 10px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
-	padding: 50px;
+	padding-left: 50px;
+	padding-bottom: 50px;
+	padding-right: 50px;
 	overflow: auto;
 	display: flex;
 	flex-direction: column;
@@ -149,6 +152,43 @@ a {
 	background-color: white;
 	align-self: flex-end;
 	justify-self: flex-start;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.modalButtons{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.addPicture{
+	margin-bottom: 20px;
+	border: solid white;
+	border-radius: 60px;
+	width: 240px;
+	height: 35px;
+	background-color: #1D6154;
+	color: white;
+}
+
+.deletePicture{
+	color: #B1663C;
+	border: 0px;
+	background-color: white;
+}
+
+.modalTitle{
+	color: #000000;
+	font-family: 'Work Sans' ;
+	font-size: 2.2em;
+	font-weight: 400;
+}
+
+.modalCloseText{
+	color: white;
+	text-decoration: underline;
+	/*display: none;*/
 }
 
 
