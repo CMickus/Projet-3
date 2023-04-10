@@ -49,7 +49,10 @@ async function initialisation() {
 	if (localStorage.getItem('userId') == '1') {
 		console.log('lol')
 		document.getElementById('connexion').innerHTML = '<a id="logout">logout</a>';
-		function editionBar(){
+		document.querySelectorAll('.connexionOnOff').forEach((balise) =>{
+			balise.style.display = null; });
+		document.querySelector('.filters').innerHTML = '';
+		/*function editionBar(){
 			const laDiv = `
 			<i class="fa-regular fa-pen-to-square penIcon"></i>
 			<a href="#modal" class="addProject modalScript">Mode édition</a>
@@ -70,57 +73,34 @@ async function initialisation() {
 			//link.appendChild(linkContent);
 			mainDiv.appendChild(icon);
 			//mainDiv.appendChild(link);
-			mainDiv.appendChild(button);*/
+			mainDiv.appendChild(button);
 			document.querySelector('.editBar').innerHTML = laDiv;
 		}
-		editionBar();
+		editionBar();*/
 	}
 	document.getElementById('logout').addEventListener('click', () => {
 		localStorage.clear('userid','token');
 		document.getElementById('connexion').innerHTML = '<a href="./login.html">login</a>';
+		document.querySelectorAll('.connexionOnOff').forEach((balise) =>{
+			balise.style.display = 'none'; });
+		Display.categoryFilters(category);
 	})
 
 	let modal = null
-
-	function openModal  (event) {
-		event.preventDefault();
-		const target = document.querySelector(event.target.getAttribute('href'));
-		target.style.display = null;
-		target.removeAttribute('aria-hidden');
-		target.setAttribute('aria-modal', 'true');
-		modal = target;
-		modal.addEventListener('click', closeModal);
-		modal.querySelector('.modalCloseScript').addEventListener('click', closeModal);
-		modal.querySelector('.modalStopScript').addEventListener('click', stopPropagation);
-
-	}
-
-	function closeModal  (event) {
-		if (modal === null){
-			return
-		}
-		event.preventDefault();
-		modal.style.display = "none";
-		modal.setAttribute('aria-hidden', true);
-		modal.removeAttribute('aria-modal');
-		modal.removeEventListener('click', closeModal);
-		modal.querySelector('.modalCloseScript').removeEventListener('click', closeModal);
-		modal.querySelector('.modalStopScript').removeEventListener('click', stopPropagation);
-		modal = null;
-	}
-
-	function stopPropagation (event){
-		event.stopPropagation();
-	}
-
+	Display.modalPictures(projects);
+	
 	document.querySelectorAll('.modalScript').forEach(element =>{
-		element.addEventListener('click', openModal);
+		element.addEventListener('click', Display.openModal);
 	})
 
 	window.addEventListener('keydown', event => {
 		if (event.key === "Escape" || event.key === "ESC"){
-			closeModal(event);
+			Display.closeModal(event);
 		}
+	})
+
+	document.querySelectorAll('.projectDelete').addEventListener('click', target => {
+		RequestAPI.del("http://localhost:5678/api/works/"+target.id);
 	})
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/

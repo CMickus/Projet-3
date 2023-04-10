@@ -137,6 +137,7 @@ a {
 	line-height: 150%;
 	max-width: 500px;
 	max-height: 650px;
+	/*-index: auto;*/
 }
 
 .projectPictures img{
@@ -144,9 +145,42 @@ a {
 	height: auto;
 }
 
-.projectPictures figcaption{
-	display: none;
+.projectPictures figure{
+	display: flex;
+	flex-direction: column;
 }
+
+.iconproject{
+	position: absolute;
+	/*z-index: 1;*/
+	align-self: flex-end;
+	margin-right: 5px;
+	margin-top: 5px;
+	gap: 3px;
+	display: flex;
+	flex-direction: row;
+}
+/*
+.crossicon{
+	margin-right: 3px;
+}*/
+
+.iconProjectStyle{
+	background-color: #000000;
+	height: 24px;
+	width: 24px;
+	border-radius: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.projectPictures i{
+	color: white;
+	/*height: 70%;
+	width: 70%;*/
+}
+
 .modalCloseStyle{
 	border: 0px;
 	background-color: white;
@@ -191,6 +225,24 @@ a {
 	/*display: none;*/
 }
 
+.presentationPictureStyle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.portefolioStyle{
+	display: flex;
+	flex-direction: column;
+}
+
+.titleStyle{
+	display: flex;
+	flex-direction: row;
+	justify-self: center;
+	align-self: center;
+}
 
 
 

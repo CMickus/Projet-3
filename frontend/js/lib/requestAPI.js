@@ -31,7 +31,28 @@ export async function post(url, content){
     }
 }
 
+export async function del(url, /*content*/){
+    try{
+        const response = await fetch(url, {
+            method: "DELETE",
+            headers: {
+                'accept': `*/*`,
+            },
+            //body: JSON.stringify(content),
+        })
+        if (response.status === 200){
+            return await response.json();
+        }
+        return -1;
+    } catch (exception){
+        console.log(exception);
+        return -1;
+    }
+
+}
+
 export default{
     get,
     post,
+    del,
 }

@@ -15,7 +15,11 @@
 </head>
 
 <body>
-	<div class="editBar"></div>
+	<div class="editBar connexionOnOff" style="display: none;">
+		<i class="fa-regular fa-pen-to-square penIcon"></i>
+			<a href="#modal" class="addProject modalScript">Mode édition</a>
+			<button class="publish">Publier les changements</button>
+	</div>
 	<aside id="modal" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false"
 		style="display: none;">
 		<div class="modalStyle modalStopScript">
@@ -44,8 +48,12 @@
 	</header>
 	<main>
 		<section id="introduction">
-			<figure>
+			<figure class="presentationPictureStyle">
 				<img src="./assets/images/sophie-bluel.png" alt="">
+				<div style="display: none;" class="connexionOnOff">
+					<i class="fa-regular fa-pen-to-square"></i>
+					<a>modifier</a>
+				</div>
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -58,8 +66,14 @@
 					décorateur(trice)</p>
 			</article>
 		</section>
-		<section id="portfolio">
+		<section id="portfolio" class="portefolioStyle">
+			<div class="titleStyle">
 			<h2>Mes Projets</h2>
+				<div class="connexionOnOff" style="display: none;">
+					<i class="fa-regular fa-pen-to-square"></i>
+					<a>modifier</a>
+				</div>
+			</div>
 			<div class="filters">
 			</div>
 			<div class="gallery">
