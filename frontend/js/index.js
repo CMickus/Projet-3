@@ -1,6 +1,7 @@
 import Display from './lib/display.js';
 import RequestAPI from './lib/requestAPI.js';
-import Filter, { active, activeAll } from './lib/filters.js';
+import Filter from './lib/filters.js';
+import Modal from './lib/modal.js' ;
 
 async function initialisation() {
 	const projects = await RequestAPI.get('http://localhost:5678/api/works');
@@ -90,12 +91,12 @@ async function initialisation() {
 	Display.modalPictures(projects);
 	
 	document.querySelectorAll('.modalScript').forEach(element =>{
-		element.addEventListener('click', Display.openModal);
+		element.addEventListener('click', Modal.openModal);
 	})
 
 	window.addEventListener('keydown', event => {
 		if (event.key === "Escape" || event.key === "ESC"){
-			Display.closeModal(event);
+			Modal.closeModal(event);
 		}
 	})
 
