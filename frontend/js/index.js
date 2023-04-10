@@ -90,6 +90,8 @@ async function initialisation() {
 	let modal = null
 	Display.modalPictures(projects);
 	
+	//document.querySelector
+
 	document.querySelectorAll('.modalScript').forEach(element =>{
 		element.addEventListener('click', Modal.openModal);
 	})

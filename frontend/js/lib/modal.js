@@ -31,7 +31,7 @@ function stopPropagation (event){
 }
 
 
-export{
+export default {
     openModal,
     closeModal,
 }

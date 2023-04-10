@@ -17,8 +17,8 @@
 <body>
 	<div class="editBar connexionOnOff" style="display: none;">
 		<i class="fa-regular fa-pen-to-square penIcon"></i>
-			<a href="#modal" class="addProject modalScript">Mode édition</a>
-			<button class="publish">Publier les changements</button>
+		<a class="addProject">Mode édition</a>
+		<button class="publish">Publier les changements</button>
 	</div>
 	<aside id="modal" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false"
 		style="display: none;">
@@ -30,46 +30,48 @@
 			<h1 class="modalTitle">Galerie photo</h1>
 			<div class="projectPictures"></div>
 			<div class="modalButtons">
-				<button class="addPicture">Ajouter une photo</button>
+				<button class="addPicture modalScript"><a href="#modal2">Ajouter une photo</a></button>
 				<button class="deletePicture">Supprimer la galerie</button>
 			</div>
 		</div>
 	</aside>
-	<aside id="modal" class="modal2 modalScript" aria-hidden="true" role="dialog" aria-modal="false"
-	style="display: none;">
-	<div class="modalStyle modalStopScript">
-		<button class="modalCloseScript modalBackScript modalBackStyle">
-			<i class="fa-solid fa-arrow-left"></i>
-			<span>Retour arrière</span>
-		</button>
-		<button class="modalCloseScript modalCloseStyle">
-			<i class="fa-solid fa-xmark"></i>
-			<span class="modalCloseText">Fermer la boitemodale</span>
-		</button>
-		<h1 class="modalTitle">Ajout photo</h1>
-		<div class="projectPictures"></div>
-		<div class="modalInputs">
-			<div>
-				<i class="fa-regular fa-image"></i>
-				<label for="">+ Ajouter photo</label>
-				<input type="file">
-				<p>jpg, png : 4mo max</p>
+	<aside id="modal2" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false"
+		style="display: none;">
+		<div class="modalStyle modalStopScript">
+			<button class="modalCloseScript modalBackScript modalBackStyle">
+				<i class="fa-solid fa-arrow-left"></i>
+				<span>Retour arrière</span>
+			</button>
+			<button class="modalCloseScript modalCloseStyle">
+				<i class="fa-solid fa-xmark"></i>
+				<span class="modalCloseText">Fermer la boitemodale</span>
+			</button>
+			<h1 class="modalTitle">Ajout photo</h1>
+			<div class="projectPictures"></div>
+			<div class="modalInputs">
+				<div>
+					<i class="fa-regular fa-image"></i>
+					<label for="">+ Ajouter photo</label>
+					<input type="file">
+					<p>jpg, png : 4mo max</p>
+				</div>
+				<div>
+					<label for="titleNewProject">Titre</label>
+					<input type="text" name="titleNewProject">
+				</div>
+				<div>
+					<label for="categorySelect"></label>
+					<select name="category" id="categorySelect" name="categorySelect">
+						<option value=""></option>
+						<option value="Objets">Objets</option>
+						<option value="Appartements">Appartements</option>
+						<option value="Hôtels et Restaurants">Hôtels et Restaurants</option>
+					</select>
+				</div>
 			</div>
-			<div>
-				<label for="titleNewProject">Titre</label>
-				<input type="text">
-			</div>
-			<div>
-				<select name="category" id="categorySelect">
-					<option value=""></option>
-					<option value="Objets">Objets</option>
-					<option value="Appartements">Appartements</option>
-					<option value="Hôtels et Restaurants">Hôtels et Restaurants</option>
-				</select>
-			</div>
+			<button>Valider</button>
 		</div>
-		<button>Valider</button>
-	</div>
+	</aside>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav>
@@ -103,10 +105,10 @@
 		</section>
 		<section id="portfolio" class="portefolioStyle">
 			<div class="titleStyle">
-			<h2>Mes Projets</h2>
+				<h2>Mes Projets</h2>
 				<div class="connexionOnOff" style="display: none;">
 					<i class="fa-regular fa-pen-to-square"></i>
-					<a>modifier</a>
+					<a href="#modal" class="modalScript">modifier</a>
 				</div>
 			</div>
 			<div class="filters">
