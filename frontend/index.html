@@ -35,6 +35,41 @@
 			</div>
 		</div>
 	</aside>
+	<aside id="modal" class="modal2 modalScript" aria-hidden="true" role="dialog" aria-modal="false"
+	style="display: none;">
+	<div class="modalStyle modalStopScript">
+		<button class="modalCloseScript modalBackScript modalBackStyle">
+
+			<span>Retour arrière</span>
+		</button>
+		<button class="modalCloseScript modalCloseStyle">
+			<i class="fa-solid fa-xmark"></i>
+			<span class="modalCloseText">Fermer la boitemodale</span>
+		</button>
+		<h1 class="modalTitle">Ajout photo</h1>
+		<div class="projectPictures"></div>
+		<div class="modalInputs">
+			<div>
+				<i></i>
+				<label for="">+ Ajouter photo</label>
+				<input type="file">
+				<p>jpg, png : 4mo max</p>
+			</div>
+			<div>
+				<label for="titleNewProject">Titre</label>
+				<input type="text">
+			</div>
+			<div>
+				<select name="category" id="categorySelect">
+					<option value=""></option>
+					<option value="Objets"></option>
+					<option value="Appartements"></option>
+					<option value="Hôtels et Restaurants"></option>
+				</select>
+			</div>
+		</div>
+		<button>Valider</button>
+	</div>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav>
