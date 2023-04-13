@@ -152,8 +152,6 @@ a {
 	background-color: white;
 	align-self: flex-end;
 	justify-self: flex-start;
-	display: flex;
-	flex-direction: row-reverse;
 }
 
 .modalButtons{
@@ -187,7 +185,6 @@ a {
 
 .modalCloseText{
 	color: white;
-	text-decoration: underline;
 	/*display: none;*/
 }
 

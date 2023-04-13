@@ -49,28 +49,12 @@ async function initialisation() {
 	if (localStorage.getItem('userId') == '1') {
 		console.log('lol')
 		document.getElementById('connexion').innerHTML = '<a id="logout">logout</a>';
-		function editionBar(){
+		function editionBar(){ // mettre dans display c'ets du display deux fonction le editionOn et editionOff
 			const laDiv = `
 			<i class="fa-regular fa-pen-to-square penIcon"></i>
 			<a href="#modal" class="addProject modalScript">Mode édition</a>
 			<button class="publish">Publier les changements</button> 
 			`
-			/*const mainDiv = document.createElement('div');
-			const button = document.createElement('button');
-			//const link = document.createTextNode('a');
-			const icon = document.createElement('i');
-			const buttonContent = document.createTextNode('publier les changements');
-			//const linkContent = document.createTextNode('Mode édition');
-			icon.className = 'fa-regular fa-pen-to-square penIcon';
-			mainDiv.className = "editBar";
-			button.className = "publish";
-			//link.setAttribute('href', "#modal");
-			//link.className = "addProject modalScript";
-			button.appendChild(buttonContent);
-			//link.appendChild(linkContent);
-			mainDiv.appendChild(icon);
-			//mainDiv.appendChild(link);
-			mainDiv.appendChild(button);*/
 			document.querySelector('.editBar').innerHTML = laDiv;
 		}
 		editionBar();
@@ -99,7 +83,7 @@ async function initialisation() {
 		if (modal === null){
 			return
 		}
-		event.preventDefault();
+		event.preventDefault();//voir précisément ce que c'est
 		modal.style.display = "none";
 		modal.setAttribute('aria-hidden', true);
 		modal.removeAttribute('aria-modal');

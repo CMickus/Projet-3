@@ -10,6 +10,7 @@ async function initialisation() {
 		};
 		console.log(JSON.stringify(user))
 		const result = await RequestAPI.post('http://localhost:5678/api/users/login',user);
+		//result = JSON.stringify(result)
 		console.log(result);
 		if(result === -1){
 			alert('Email ou mot de passe incorrect');
