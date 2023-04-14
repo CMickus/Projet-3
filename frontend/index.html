@@ -15,7 +15,11 @@
 </head>
 
 <body>
-	<div class="editBar"></div>
+	<div class="editBar connexionOnOff" style="display: none;">
+		<i class="fa-regular fa-pen-to-square penIcon"></i>
+		<a class="addProject">Mode édition</a>
+		<button class="publish">Publier les changements</button>
+	</div>
 	<aside id="modal" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false"
 		style="display: none;">
 		<div class="modalStyle modalStopScript">
@@ -26,9 +30,50 @@
 			<h1 class="modalTitle">Galerie photo</h1>
 			<div class="projectPictures"></div>
 			<div class="modalButtons">
-				<button class="addPicture">Ajouter une photo</button>
+				<button class="addPicture modalScript modal2"><a href="#modal2">Ajouter une photo</a></button>
 				<button class="deletePicture">Supprimer la galerie</button>
 			</div>
+		</div>
+	</aside>
+	<aside id="modal2" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false"
+		style="display: none;">
+		<div class="modalStyle modalStopScript">
+			<div class="modalCloseButtonStyle">
+				<div class="modalCloseScript modalBackScript modalBackStyle">
+					<i class="fa-solid fa-arrow-left"></i>
+					<span class="modalCloseText">Retour arrière</span>
+				</div>
+				<button class="modalCloseScript modalCloseStyle">
+					<span class="modalCloseText">Fermer la boitemodale</span>
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+			</div>
+			<h1 class="modalTitle">Ajout photo</h1>
+			<div class="modalInputs">
+				<div class="modalPictureInput">
+					<i class="fa-regular fa-image pictureIcon"></i>
+					<label for="filePicture">+ Ajouter photo</label>
+					<input id="filePicture" type="file" accept="image/png, image/jpg" 
+						size="4194304" required><!--d'après un convertisseur sur le net 4mo c'est ça en bytes-->
+					<p>jpg, png : 4mo max</p>
+				</div>
+				<div class="modalTextInput">
+					<div class="modalInfoInput">
+						<label for="titleNewProject">Titre</label>
+						<input type="text" name="titleNewProject" class="modalInputButton" required>
+					</div>
+					<div class="modalInfoInput">
+						<label for="categorySelect">Catégorie</label>
+						<select name="category" id="categorySelect" name="categorySelect" class="modalInputButton" required>
+							<option value=""></option>
+							<option value="Objets">Objets</option>
+							<option value="Appartements">Appartements</option>
+							<option value="Hôtels et Restaurants">Hôtels et Restaurants</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<button class="addPicture">Valider</button>
 		</div>
 	</aside>
 	<header>
@@ -43,9 +88,13 @@
 		</nav>
 	</header>
 	<main>
-		<section id="introduction">
-			<figure>
+		<section id="introduction" class="introduction">
+			<figure class="presentationPictureStyle">
 				<img src="./assets/images/sophie-bluel.png" alt="">
+				<div style="display: none;" class="connexionOnOff modifierStyleIntro">
+					<i class="fa-regular fa-pen-to-square"></i>
+					<a>modifier</a>
+				</div>
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -58,8 +107,14 @@
 					décorateur(trice)</p>
 			</article>
 		</section>
-		<section id="portfolio">
-			<h2>Mes Projets</h2>
+		<section id="portfolio" class="portefolioStyle">
+			<div class="titleStyle">
+				<h2 class="bodyProjectTitle">Mes Projets</h2>
+				<div class="connexionOnOff" style="display: none;">
+					<i class="fa-regular fa-pen-to-square"></i>
+					<a href="#modal" class="modalScript">modifier</a>
+				</div>
+			</div>
 			<div class="filters">
 			</div>
 			<div class="gallery">

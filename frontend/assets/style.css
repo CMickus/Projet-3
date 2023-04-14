@@ -137,6 +137,7 @@ a {
 	line-height: 150%;
 	max-width: 500px;
 	max-height: 650px;
+	/*-index: auto;*/
 }
 
 .projectPictures img{
@@ -144,9 +145,42 @@ a {
 	height: auto;
 }
 
-.projectPictures figcaption{
-	display: none;
+.projectPictures figure{
+	display: flex;
+	flex-direction: column;
 }
+
+.iconproject{
+	position: absolute;
+	/*z-index: 1;*/
+	align-self: flex-end;
+	margin-right: 5px;
+	margin-top: 5px;
+	gap: 3px;
+	display: flex;
+	flex-direction: row;
+}
+/*
+.crossicon{
+	margin-right: 3px;
+}*/
+
+.iconProjectStyle{
+	background-color: #000000;
+	height: 24px;
+	width: 24px;
+	border-radius: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.projectPictures i{
+	color: white;
+	/*height: 70%;
+	width: 70%;*/
+}
+
 .modalCloseStyle{
 	border: 0px;
 	background-color: white;
@@ -188,6 +222,102 @@ a {
 	/*display: none;*/
 }
 
+.presentationPictureStyle{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.portefolioStyle{
+	display: flex;
+	flex-direction: column;
+}
+
+.introduction{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.pictureIntro{
+	width: 475px;
+	display: flex;
+	flex-direction: column;
+}
+
+.modifierStyleIntro{
+	align-self: flex-start;
+}
+
+.titleStyle{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-self: center;
+	align-self: center;
+	align-items: center;
+	justify-content: center;
+	gap: 3%;
+}
+
+.bodyProjectTitle{
+	justify-self: center;
+	align-self: center;
+	height: 100%;
+}
+
+.modalCloseButtonStyle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.modalPictureInput{
+	width: 420px;
+	height: 170px;
+	display: flex;
+	background-color: #e8f1f7;
+	border-radius: 3px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.pictureIcon{
+	font-size: 5em;
+	color: #b9c5cc;
+	background-color: #e8f1f7;
+}
+
+.modalInputs{
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.modalTextInput{
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.modalInfoInput{
+	display: flex;
+	flex-direction: column;
+}
+
+.modalInputButton{
+	border: solid 0px;
+	box-shadow: 0px 4px 14px  rgba(0, 0, 0, 0.09);
+	height: 50px;
+	margin-top: 10px;
+	padding-left: 15px;
+}
 
 
 
