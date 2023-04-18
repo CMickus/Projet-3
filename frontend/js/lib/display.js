@@ -46,13 +46,15 @@ export function categoryFilters(filters) {
 }
 
 export function displayPictureInput() {
-    document.getElementById('filePicture').addEventListener('change', () => {
-        if (this.files && this.files[0]) {
+    document.getElementById('filePicture').addEventListener('change', (event) => {
+        const target =event.target
+        console.log(target)
+        if (target.files && target.files[0]) {
             const newImage = document.querySelector('.newImageProject');
             newImage.onload = () =>{
                 URL.revokeObjectURL(newImage.src);
             }
-            newImage.src = URL.createObjectURL(this.files[0]);
+            newImage.src = URL.createObjectURL(target.files[0]);
             document.querySelector(".pictureInput").style.display = none;
         }
     })
