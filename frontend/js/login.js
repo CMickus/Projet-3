@@ -13,7 +13,8 @@ async function initialisation() {
 		//result = JSON.stringify(result)
 		console.log(result);
 		if(result === -1){
-			alert('Email ou mot de passe incorrect');
+			const loginFail = document.querySelector('.loginError');
+			loginFail.style.display = null;
 		} else {
             Object.keys(result).forEach(element => {
                 window.localStorage.setItem(element, result[element])

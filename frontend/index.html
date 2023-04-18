@@ -23,7 +23,8 @@
 	<aside id="modal" class="modal modalScript" aria-hidden="true" role="dialog" aria-modal="false"
 		style="display: none;">
 		<div class="modalStyle modalStopScript">
-			<button class="modalCloseScript modalCloseStyle">
+			<button
+				class="modalCloseScript modalCloseStyle"><!--cacher le input et transformé le label enfaux boutton-->
 				<span class="modalCloseText">Fermer la boite modale</span>
 				<i class="fa-solid fa-xmark"></i>
 			</button>
@@ -51,11 +52,14 @@
 			<h1 class="modalTitle">Ajout photo</h1>
 			<div class="modalInputs">
 				<div class="modalPictureInput">
-					<i class="fa-regular fa-image pictureIcon"></i>
-					<label for="filePicture">+ Ajouter photo</label>
-					<input id="filePicture" type="file" accept="image/png, image/jpg" 
-						size="4194304" required><!--d'après un convertisseur sur le net 4mo c'est ça en bytes-->
-					<p>jpg, png : 4mo max</p>
+					<img src="" alt="" class="newImageProject">
+					<div class="pictureInput" style="display: null;">
+						<i class="fa-regular fa-image pictureIcon"></i>
+						<button id="addFilePicture" class="buttonAddPicture">+ Ajouter photo</button>
+						<input id="filePicture" type="file" accept="image/png, image/jpg" style="display: none;"
+							size="4194304" required>
+						<p>jpg, png : 4mo max</p>
+					</div>
 				</div>
 				<div class="modalTextInput">
 					<div class="modalInfoInput">
@@ -64,7 +68,8 @@
 					</div>
 					<div class="modalInfoInput">
 						<label for="categorySelect">Catégorie</label>
-						<select name="category" id="categorySelect" name="categorySelect" class="modalInputButton" required>
+						<select name="category" id="categorySelect" name="categorySelect" class="modalInputButton"
+							required>
 							<option value=""></option>
 							<option value="Objets">Objets</option>
 							<option value="Appartements">Appartements</option>

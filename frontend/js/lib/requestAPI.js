@@ -31,18 +31,18 @@ export async function post(url, content) {
     }
 }
 
-export async function del(url, /*content*/) {
+export async function del(url,token) {
     try {
         const response = await fetch(url, {
             method: "DELETE",
             headers: {
-                'accept': `*/*`,
+                'authorization': `Bearer ${token}`  
             },
-            //body: JSON.stringify(content),
         })
-        if (response.status === 200) {
-            return await response.json();
+        if (response.status === 204) {
+            return alert('Item deleted');
         }
+        console.log(response.status)
         return -1;
     } catch (exception) {
         console.log(exception);
