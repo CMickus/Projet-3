@@ -65,7 +65,6 @@ async function initialisation() {
 	Display.modalPictures(projects);
 	
 	//document.querySelector
-
 	document.querySelectorAll('.modalScript').forEach(element =>{
 		element.addEventListener('click', /*() =>{
       if (element.classList.contains('modal2')){
@@ -99,6 +98,17 @@ async function initialisation() {
     Display.displayPictureInput();
   })
 
+ /* document.getElementsByClassName('addPicture')[0].addEventListener('click', async (event) => {
+	console.log(document.querySelector('.addPicture'))
+	event.preventDefault();
+		const project = { image: document.getElementById('filePicture').value,
+			title: document.getElementById('titleProject').value,
+			category: document.getElementById('categorySelect').value,
+		};
+		const userToken= localStorage.getItem('token');
+		console.log(JSON.stringify(project))
+		const result = await RequestAPI.adminPost('http://localhost:5678/api/works',project,userToken)
+		console.log(result);})*/
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();
