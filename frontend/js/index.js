@@ -98,7 +98,7 @@ async function initialisation() {
     Display.displayPictureInput();
   })
 
- /* document.getElementsByClassName('addPicture')[0].addEventListener('click', async (event) => {
+  /*document.querySelector('.addPicture').addEventListener('click', async (event) => {
 	console.log(document.querySelector('.addPicture'))
 	event.preventDefault();
 		const project = { image: document.getElementById('filePicture').value,

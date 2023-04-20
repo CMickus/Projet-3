@@ -188,6 +188,11 @@ a {
 	justify-self: flex-start;
 }
 
+.modalBackStyle{
+	border: 0px;
+	background-color: white;
+}
+
 .modalButtons{
 	display: flex;
 	flex-direction: column;
@@ -285,6 +290,11 @@ a {
 	justify-content: center;
 }
 
+.newImageProject{
+	height: 100%;
+	/*object-fit: cover;*/
+}
+
 .pictureIcon{
 	font-size: 5em;
 	color: #b9c5cc;
@@ -341,6 +351,7 @@ a {
 	align-items: center;
 	justify-content: center;
 }
+
 
 
 

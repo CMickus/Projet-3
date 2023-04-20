@@ -1,5 +1,5 @@
 let modal = null
- export function openModal  (event) {
+export function openModal(event) {
     event.preventDefault();
     closeModal();
     const target = document.querySelector(event.target.getAttribute('href'));
@@ -13,22 +13,22 @@ let modal = null
 
 }
 
-export function closeModal  (event) {
+export function closeModal(event) {
     const modalAside = document.querySelectorAll("aside.modalScript")
     //event.preventDefault();
-    modalAside.forEach(modal=>{
+    modalAside.forEach(modal => {
         modal.style.display = "none";
-    modal.setAttribute('aria-hidden', true);
-    modal.removeAttribute('aria-modal');
-    modal.removeEventListener('click', closeModal);
-    modal.querySelector('.modalCloseScript').removeEventListener('click', closeModal);
-    modal.querySelector('.modalStopScript').removeEventListener('click', stopPropagation);
+        modal.setAttribute('aria-hidden', true);
+        modal.removeAttribute('aria-modal');
+        modal.removeEventListener('click', closeModal);
+        modal.querySelector('.modalCloseScript').removeEventListener('click', closeModal);
+        modal.querySelector('.modalStopScript').removeEventListener('click', stopPropagation);
     })
-    modal = null;
+    //modal = null;
 }
 
 
-function stopPropagation (event){
+function stopPropagation(event) {
     event.stopPropagation();
 }
 

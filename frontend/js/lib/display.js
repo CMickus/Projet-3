@@ -55,7 +55,7 @@ export function displayPictureInput() {
                 URL.revokeObjectURL(newImage.src);
             }
             newImage.src = URL.createObjectURL(target.files[0]);
-            document.querySelector(".pictureInput").style.display = none;
+            document.querySelector(".pictureInput").style.display = "none";
         }
     })
 }
