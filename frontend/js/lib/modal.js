@@ -3,7 +3,7 @@ export function openModal(event) {
     event.preventDefault();
     closeModal();
     const target = document.querySelector(event.target.getAttribute('href'));
-    target.style.display = null;
+    target.style.display = "";
     target.removeAttribute('aria-hidden');
     target.setAttribute('aria-modal', 'true');
     modal = target;

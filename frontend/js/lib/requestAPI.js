@@ -40,7 +40,8 @@ export async function adminPost(url, content, token){
                 "accept": "application/json",
                 "Content-Type": "multipart/form-data",
                 'authorization': `Bearer ${token}`  
-            }
+            },
+            body: JSON.stringify(content),
         })
         if (response.status === 200) {
             return alert ('Item added');

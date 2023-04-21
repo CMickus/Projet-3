@@ -50,12 +50,12 @@
 				</button>
 			</div>
 			<h1 class="modalTitle">Ajout photo</h1>
-			<form method="post" class="modalInputs">
+			<form method="post" id="sentNewProject" class="modalInputs">
 				<div class="modalPictureInput">
 					<img src="#" alt="" class="newImageProject">
 					<div class="pictureInput" style="display: null;">
 						<i class="fa-regular fa-image pictureIcon"></i>
-						<button id="addFilePicture" class="buttonAddPicture">+ Ajouter photo</button>
+						<button id="addFilePicture" class="buttonAddPicture" type="button">+ Ajouter photo</button>
 						<input id="filePicture" type="file" accept="image/png"  style="display: none;"
 							required>
 						<p>jpg, png : 4mo max</p>
@@ -78,7 +78,7 @@
 					</div>
 				</div>
 			</form>
-			<button class="addPicture">Valider</button>
+			<button class="addPicture" form="sentNewProject">Valider</button>
 		</div>
 	</aside>
 	<header>
