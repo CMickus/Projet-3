@@ -99,6 +99,14 @@ async function initialisation() {
     Display.displayPictureInput();
   })
 
+  document.querySelector('.modalInputs').addEventListener('formdata', ()=>{
+	if(document.getElementById('filePicture').files[0] == null && !document.getElementById('titleProject').checkValidity() && document.getElementById('categorySelect').value == 0){
+		document.querySelector('.addPicture').classList.add('greyBackground')
+	} else {
+		document.querySelector('.addPicture').classList.remove('greyBackground')
+	}
+  })
+
   document.querySelector('.modalInputs').addEventListener('submit', async (event) => {
 	console.log(document.querySelector('.modalInputs'))
 	event.preventDefault();
@@ -113,6 +121,7 @@ async function initialisation() {
 		const formPicture = document.getElementById('filePicture')
 		console.log(formTitle.value)
 		console.log(formCategory.value)
+		console.log(formPicture.files[0])
 		projectData.append('image',formPicture.files[0]);
 		projectData.append('title',formTitle.value);
 		projectData.append('category',formCategory.value);
@@ -123,9 +132,9 @@ async function initialisation() {
 		if (formCategory.value == 0){
 			document.querySelector('.errorCategory').innerHTML = "Category invalide";
 		}
-		if ( /\.(jpg|png|)$/i.test(formPicture.files[0].name) === false || formPicture.file[0].size > 4194304 ){
+		if ( /\.(jpg|png)$/i.test(formPicture.files[0].name) === false || formPicture.files[0].size > 4194304 ){
 			document.querySelector('.errorPicture').innerHTML = "Mauvais type de fichier ou ficher trop lourd";
-			formPicture.reset();
+			//formPicture.reset();
 		}
 		const userToken= localStorage.getItem('token');
 		console.log(formTitle.checkValidity())

@@ -14,8 +14,8 @@ export function modalPictures(projects) {
     projects.forEach((project) => {
         htmlPictures += `<figure categoryId="${project.categoryId}">
         <div class="iconproject">
-        <button class="iconProjectStyle projectDelete"> 
-        <i class="fa-solid fa-trash-can" data-id="${project.id}"></i>
+        <button class="iconProjectStyle projectDelete" data-id="${project.id}"> 
+        <i class="fa-solid fa-trash-can"></i>
         </button>
         </div>
         <img src="${project.imageUrl}" alt="${project.title}">
