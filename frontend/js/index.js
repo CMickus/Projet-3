@@ -49,7 +49,7 @@ async function initialisation() {
 	console.log(localStorage)
 	if (localStorage.getItem('userId') == '1') {
 		console.log('lol')
-		document.getElementById('connexion').innerHTML = '<a id="logout">logout</a>';
+		document.getElementById('connexion').innerHTML = '<a id="logout" class="logout">logout</a>';
 		document.querySelectorAll('.connexionOnOff').forEach((balise) =>{
 			balise.style.display = null; });
 		document.querySelector('.filters').innerHTML = '';

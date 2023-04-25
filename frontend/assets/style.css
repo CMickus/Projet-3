@@ -306,6 +306,7 @@ a {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	align-items: center;
 }
 
 .modalTextInput{
@@ -334,6 +335,9 @@ a {
 }
 
 .buttonAddPicture{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	border-radius: 50px;
 	border: 0px;
 	background-color: #cbd6dc;
@@ -354,6 +358,10 @@ a {
 
 .hidden{
 	display: none;
+}
+
+.logout:hover{
+	color:#B1663C;
 }
 
 
