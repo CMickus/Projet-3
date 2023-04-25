@@ -3,7 +3,7 @@ export function openModal(event) {
     event.preventDefault();
     closeModal();
     const target = document.querySelector(event.target.getAttribute('href'));
-    target.classList.remove('hidden');
+    target.style.display = "";
     target.removeAttribute('aria-hidden');
     target.setAttribute('aria-modal', 'true');
     modal = target;
@@ -17,7 +17,7 @@ export function closeModal(event) {
     const modalAside = document.querySelectorAll("aside.modalScript")
     //event.preventDefault();
     modalAside.forEach(modal => {
-        modal.classList.add('hidden');
+        modal.style.display = "none";
         modal.setAttribute('aria-hidden', true);
         modal.removeAttribute('aria-modal');
         modal.removeEventListener('click', closeModal);

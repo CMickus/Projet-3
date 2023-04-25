@@ -33,7 +33,7 @@ export function modalPictures(projects) {
 
 export function categoryFilters(filters) {
     let htmlFilter = ``;
-    let htmlSelect = `<option value="0"></option>`;
+    let htmlSelect = `<option value="0" selected disabled></option>`;
     filters.forEach((filter) => {
         let classes = 'buttonfilter buttonstyle';
         console.log(filter)

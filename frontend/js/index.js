@@ -108,19 +108,35 @@ async function initialisation() {
 			// pour catégorie récupéré l'id de la category faire attentin a ne pas envoyer le nom string humain de la cat
 		};*/
 		let projectData = new FormData();
-		console.log(document.getElementById('titleProject').value)
-		console.log(document.getElementById('categorySelect').value)
-		projectData.append('image',document.getElementById('filePicture').files[0]);
-		projectData.append('title',document.getElementById('titleProject').value);
-		projectData.append('category',document.getElementById('categorySelect').value);
+		const formTitle = document.getElementById('titleProject')
+		const formCategory = document.getElementById('categorySelect')
+		const formPicture = document.getElementById('filePicture')
+		console.log(formTitle.value)
+		console.log(formCategory.value)
+		projectData.append('image',formPicture.files[0]);
+		projectData.append('title',formTitle.value);
+		projectData.append('category',formCategory.value);
 		console.log(projectData)
+		if (!formTitle.checkValidity()){
+			document.querySelector('.errorTitle').innerHTML = "Veuillez enregistrer un titre";
+		}
+		if (formCategory.value == 0){
+			document.querySelector('.errorCategory').innerHTML = "Category invalide";
+		}
+		if ( /\.(jpg|png|)$/i.test(formPicture.files[0].name) === false || formPicture.file[0].size > 4194304 ){
+			document.querySelector('.errorPicture').innerHTML = "Mauvais type de fichier ou ficher trop lourd";
+			formPicture.reset();
+		}
 		const userToken= localStorage.getItem('token');
-		// verifier la taille du file ici en JS aller voir docu
-		// test aussi avec une image plus petite sur swagger puis ici et check avec rpohject data qu'on a les bonens valeurs
-		//console.log(JSON.stringify(project));
-		const result = await RequestAPI.adminPost('http://localhost:5678/api/works',projectData,userToken)
-		console.log(result);
-		document.querySelector('.modalInputs').reset();	
+		console.log(formTitle.checkValidity())
+		console.log(formPicture.checkValidity())
+		console.log(formCategory.checkValidity())
+		console.log(formPicture.files[0].size)
+		if (formTitle.checkValidity() &&  /\.(jpg|png|)$/i.test(formPicture.files[0].name) === true && !formCategory.value == 0 && formPicture.files[0].size < 4194304){
+			const result = await RequestAPI.adminPost('http://localhost:5678/api/works',projectData,userToken)
+			console.log(result);
+			document.querySelector('.modalInputs').reset();
+		} 
 	})
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
