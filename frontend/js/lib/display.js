@@ -33,15 +33,20 @@ export function modalPictures(projects) {
 
 export function categoryFilters(filters) {
     let htmlFilter = ``;
+    let htmlSelect = `<option value="0"></option>`;
     filters.forEach((filter) => {
         let classes = 'buttonfilter buttonstyle';
         console.log(filter)
         if (filter.id === 0) {
             classes += ' active';
+            htmlSelect += ``;
+        } else {
+            htmlSelect += `<option value ="${filter.id}">${filter.name}</option>`
         }
         htmlFilter += `<button id="${filter.id}" class="${classes}" type="button">${filter.name}</button>`;
     })
     document.querySelector('.filters').innerHTML = htmlFilter;
+    document.querySelector('.modalSelectInput').innerHTML = htmlSelect
     document.getElementById('0').classList.toggle("buttonfilter")
 }
 

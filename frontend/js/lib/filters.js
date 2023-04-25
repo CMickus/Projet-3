@@ -17,6 +17,8 @@ export function active(button) {
     } else if (!button.classList.contains("active") && buttonAll.classList.contains("active")) {
         button.classList.add('active');
         buttonAll.classList.remove('active');
+    } else if (button.classList.contains("active")) {
+        activeAll();
     } else {
         button.classList.toggle('active');
     }

@@ -20,8 +20,7 @@
 		<a class="addProject">Mode édition</a>
 		<button class="publish">Publier les changements</button>
 	</div>
-	<aside id="modal" class="modal modalScript modal1" aria-hidden="true" role="dialog" aria-modal="false"
-		style="display: none;">
+	<aside id="modal" class="modal modalScript modal1" aria-hidden="true" role="dialog" aria-modal="false">
 		<div class="modalStyle modalStopScript">
 			<button
 				class="modalCloseScript modalCloseStyle"><!--cacher le input et transformé le label enfaux boutton-->
@@ -36,13 +35,12 @@
 			</div>
 		</div>
 	</aside>
-	<aside id="modal2" class="modal modalScript modal2" aria-hidden="true" role="dialog" aria-modal="false"
-		style="display: none;">
+	<aside id="modal2" class="modal modalScript modal2" aria-hidden="true" role="dialog" aria-modal="false">
 		<div class="modalStyle modalStopScript">
 			<div class="modalCloseButtonStyle">
 				<button class="modalScript modalBackStyle">
-					<a href="#modal"><i class="fa-solid fa-arrow-left"></i></a>
-					<span class="modalCloseText">Retour arrière</span>
+					<a href="#modal"><i class="fa-solid fa-arrow-left"></i>
+					<span class="modalCloseText">Retour arrière</span></a>
 				</button>
 				<button class="modalCloseScript modalCloseStyle">
 					<span class="modalCloseText">Fermer la boitemodale</span>
@@ -50,13 +48,13 @@
 				</button>
 			</div>
 			<h1 class="modalTitle">Ajout photo</h1>
-			<form method="post" id="sentNewProject" class="modalInputs">
+			<form action="#" id="sentNewProject" class="modalInputs">
 				<div class="modalPictureInput">
 					<img src="#" alt="" class="newImageProject">
 					<div class="pictureInput" style="display: null;">
 						<i class="fa-regular fa-image pictureIcon"></i>
-						<button id="addFilePicture" class="buttonAddPicture" type="button">+ Ajouter photo</button>
-						<input id="filePicture" type="file" accept="image/png"  style="display: none;"
+						<label id="addFilePicture" class="buttonAddPicture" for="filePicture">+ Ajouter photo</label>
+						<input id="filePicture" type="file" accept="image/png"  style="display: none;" size="4194304"
 							required>
 						<p>jpg, png : 4mo max</p>
 					</div>
@@ -64,21 +62,21 @@
 				<div class="modalTextInput">
 					<div class="modalInfoInput">
 						<label for="titleNewProject">Titre</label>
-						<input type="text" name="titleNewProject" class="modalInputButton" required>
+						<input type="text" name="titleNewProject" class="modalInputButton" id="titleProject" required>
 					</div>
 					<div class="modalInfoInput">
 						<label for="categorySelect">Catégorie</label>
-						<select name="category" id="categorySelect" name="categorySelect" class="modalInputButton"
+						<select name="category" id="categorySelect" name="categorySelect" class="modalInputButton modalSelectInput"
 							required>
-							<option value=""></option>
-							<option value="Objets">Objets</option>
-							<option value="Appartements">Appartements</option>
-							<option value="Hôtels et Restaurants">Hôtels et Restaurants</option>
+							<!-- essayer de le creer dynamiquement mettre dans value l'id des category et le contenu name
+							pour la valeur vide faudra check qu'une category a bien été choisie
+							idem pour valider check que tout est demander-->
+							
 						</select>
 					</div>
 				</div>
+				<button class="addPicture">Valider</button>
 			</form>
-			<button class="addPicture" form="sentNewProject">Valider</button>
 		</div>
 	</aside>
 	<header>

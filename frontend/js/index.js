@@ -93,22 +93,35 @@ async function initialisation() {
 	})
 
 
-  document.getElementById('addFilePicture').addEventListener('click', () => {
+  document.getElementById('addFilePicture').addEventListener('click', (event) => {
+	event.preventDefault();
     document.getElementById('filePicture').click();
     Display.displayPictureInput();
   })
 
-  /*document.querySelector('.addPicture').addEventListener('click', async (event) => {
-	console.log(document.querySelector('.addPicture'))
+  document.querySelector('.modalInputs').addEventListener('submit', async (event) => {
+	console.log(document.querySelector('.modalInputs'))
 	event.preventDefault();
-		const project = { image: document.getElementById('filePicture').value,
+		/*const project = { image: document.getElementById('filePicture').files[0],
 			title: document.getElementById('titleProject').value,
 			category: document.getElementById('categorySelect').value,
-		};
+			// pour catégorie récupéré l'id de la category faire attentin a ne pas envoyer le nom string humain de la cat
+		};*/
+		let projectData = new FormData();
+		console.log(document.getElementById('titleProject').value)
+		console.log(document.getElementById('categorySelect').value)
+		projectData.append('image',document.getElementById('filePicture').files[0]);
+		projectData.append('title',document.getElementById('titleProject').value);
+		projectData.append('category',document.getElementById('categorySelect').value);
+		console.log(projectData)
 		const userToken= localStorage.getItem('token');
-		console.log(JSON.stringify(project))
-		const result = await RequestAPI.adminPost('http://localhost:5678/api/works',project,userToken)
-		console.log(result);})*/
+		// verifier la taille du file ici en JS aller voir docu
+		// test aussi avec une image plus petite sur swagger puis ici et check avec rpohject data qu'on a les bonens valeurs
+		//console.log(JSON.stringify(project));
+		const result = await RequestAPI.adminPost('http://localhost:5678/api/works',projectData,userToken)
+		console.log(result);
+		document.querySelector('.modalInputs').reset();	
+	})
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();
