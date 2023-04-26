@@ -46,9 +46,7 @@ async function initialisation() {
 			Display.showCardProject(projectfilter);
 		}
 	})
-	console.log(localStorage)
 	if (localStorage.getItem('userId') == '1') {
-		console.log('lol')
 		document.getElementById('connexion').innerHTML = '<a id="logout" class="logout">logout</a>';
 		document.querySelectorAll('.connexionOnOff').forEach((balise) => {
 			balise.style.display = null;
@@ -73,6 +71,11 @@ async function initialisation() {
         Modal.closeModal(element)
       }*/
 			Modal.openModal);
+	})
+
+	document.querySelectorAll('.modalScriptChange').forEach(element =>{
+		element.addEventListener('click', 
+			Modal.changeModal)
 	})
 
 	window.addEventListener('keydown', event => {
@@ -151,9 +154,9 @@ async function initialisation() {
 	const formCategory = document.getElementById('categorySelect')
 	const formPicture = document.getElementById('filePicture')
 
-	formTitle.addEventListener('input', Display.changeColor())
-	formCategory.addEventListener('input', Display.changeColor())
-	formPicture.addEventListener('input', Display.changeColor())
+	formTitle.addEventListener('input', Display.changeColor)
+	formCategory.addEventListener('input', Display.changeColor)
+	formPicture.addEventListener('input', Display.changeColor )
 
 }
 /*allButton.addEventListener('click',Filter.activeAll)*/

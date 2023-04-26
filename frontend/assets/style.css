@@ -368,6 +368,14 @@ a {
 	background-color: #a7a7a7;
 }
 
+.modalTop{
+	z-index: 2;
+}
+
+.modalBottom{
+	z-index: 1;
+}
+
 
 
 html, body, div, span, applet, object, iframe,

@@ -20,66 +20,70 @@
 		<a class="addProject">Mode édition</a>
 		<button class="publish">Publier les changements</button>
 	</div>
-	<aside id="modal" class="modal modalScript modal1" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
-		<div class="modalStyle modalStopScript">
-			<button
-				class="modalCloseScript modalCloseStyle"><!--cacher le input et transformé le label enfaux boutton-->
-				<span class="modalCloseText">Fermer la boite modale</span>
-				<i class="fa-solid fa-xmark"></i>
-			</button>
-			<h1 class="modalTitle">Galerie photo</h1>
-			<div class="projectPictures"></div>
-			<div class="modalButtons">
-				<button class="addPicture modalScript modal2" href="#modal2">Ajouter une photo</button>
-				<button class="deletePicture">Supprimer la galerie</button>
-			</div>
-		</div>
-	</aside>
-	<aside id="modal2" class="modal modalScript modal2" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
-		<div class="modalStyle modalStopScript">
-			<div class="modalCloseButtonStyle">
-				<button class="modalScript modalBackStyle">
-					<a href="#modal"><i class="fa-solid fa-arrow-left"></i>
-					<span class="modalCloseText">Retour arrière</span></a>
-				</button>
-				<button class="modalCloseScript modalCloseStyle">
-					<span class="modalCloseText">Fermer la boitemodale</span>
+	<aside id="modal" class="modalScript modalStopScript"  aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
+		<div class="modal modal1 modalTop modalStopScript" id="modal1">
+			<div class="modalStyle modalStopScript">
+				<button
+					class="modalCloseScript modalCloseStyle"><!--cacher le input et transformé le label enfaux boutton-->
+					<span class="modalCloseText">Fermer la boite modale</span>
 					<i class="fa-solid fa-xmark"></i>
 				</button>
-			</div>
-			<h1 class="modalTitle">Ajout photo</h1>
-			<form action="#" id="sentNewProject" class="modalInputs">
-				<div class="modalPictureInput">
-					<img src="#" alt="" class="newImageProject">
-					<p class="errorPicture"></p>
-					<div class="pictureInput" style="display: null;">
-						<i class="fa-regular fa-image pictureIcon"></i>
-						<label id="addFilePicture" class="buttonAddPicture" for="filePicture">+ Ajouter photo</label>
-						<input id="filePicture" class="inputFilePicture" type="file" accept=".png, .jpg"  style="display: none;" size="4194304"
-							required>
-						<p>jpg, png : 4mo max</p>
-					</div>
+				<h1 class="modalTitle">Galerie photo</h1>
+				<div class="projectPictures"></div>
+				<div class="modalButtons">
+					<button class="addPicture modal2 modalScriptChange" href="#modal2">Ajouter une photo</button>
+					<button class="deletePicture">Supprimer la galerie</button>
 				</div>
-				<div class="modalTextInput">
-					<div class="modalInfoInput">
-						<label for="titleNewProject">Titre</label>
-						<input type="text" name="titleNewProject" class="modalInputButton" id="titleProject" required>
-						<p class="errorTitle"></p>
+			</div>
+		</div>
+		<div class="modal modalScript modalStopScript modal2 modalBottom" id="modal2">
+			<div class="modalStyle modalStopScript">
+				<div class="modalCloseButtonStyle">
+					<button class="modalScriptChange modalBackStyle">
+						<a href="#modal1"><i class="fa-solid fa-arrow-left"></i></a> 
+						<span class="modalCloseText">Retour arrière</span>
+					</button>
+					<button class="modalCloseScript modalCloseStyle">
+						<span class="modalCloseText">Fermer la boitemodale</span>
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+				<h1 class="modalTitle">Ajout photo</h1>
+				<form action="#" id="sentNewProject" class="modalInputs">
+					<div class="modalPictureInput">
+						<img src="#" alt="" class="newImageProject">
+						<p class="errorPicture"></p>
+						<div class="pictureInput" style="display: null;">
+							<i class="fa-regular fa-image pictureIcon"></i>
+							<label id="addFilePicture" class="buttonAddPicture" for="filePicture">+ Ajouter
+								photo</label>
+							<input id="filePicture" class="inputFilePicture" type="file" accept=".png, .jpg"
+								style="display: none;" size="4194304" required>
+							<p>jpg, png : 4mo max</p>
+						</div>
 					</div>
-					<div class="modalInfoInput">
-						<label for="categorySelect">Catégorie</label>
-						<select name="category" id="categorySelect" name="categorySelect" class="modalInputButton modalSelectInput"
-							required>
-							<!-- essayer de le creer dynamiquement mettre dans value l'id des category et le contenu name
+					<div class="modalTextInput">
+						<div class="modalInfoInput">
+							<label for="titleNewProject">Titre</label>
+							<input type="text" name="titleNewProject" class="modalInputButton" id="titleProject"
+								required>
+							<p class="errorTitle"></p>
+						</div>
+						<div class="modalInfoInput">
+							<label for="categorySelect">Catégorie</label>
+							<select name="category" id="categorySelect" name="categorySelect"
+								class="modalInputButton modalSelectInput" required>
+								<!-- essayer de le creer dynamiquement mettre dans value l'id des category et le contenu name
 							pour la valeur vide faudra check qu'une category a bien été choisie
 							idem pour valider check que tout est demander-->
-							
-						</select>
-						<p class="errorCategory"></p>
+
+							</select>
+							<p class="errorCategory"></p>
+						</div>
 					</div>
-				</div>
-				<button class="addPicture greyBackground" id="changeColor">Valider</button>				
-			</form>
+					<button class="addPicture greyBackground" id="changeColor">Valider</button>
+				</form>
+			</div>
 		</div>
 	</aside>
 	<header>

@@ -36,7 +36,6 @@ export function categoryFilters(filters) {
     let htmlSelect = `<option value="0" selected disabled></option>`;
     filters.forEach((filter) => {
         let classes = 'buttonfilter buttonstyle';
-        console.log(filter)
         if (filter.id === 0) {
             classes += ' active';
             htmlSelect += ``;
