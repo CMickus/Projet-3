@@ -52,11 +52,11 @@ export function categoryFilters(filters) {
 
 export function displayPictureInput() {
     document.getElementById('filePicture').addEventListener('change', (event) => {
-        const target =event.target
+        const target = event.target
         console.log(target)
         if (target.files && target.files[0]) {
             const newImage = document.querySelector('.newImageProject');
-            newImage.onload = () =>{
+            newImage.onload = () => {
                 URL.revokeObjectURL(newImage.src);
             }
             newImage.src = URL.createObjectURL(target.files[0]);
@@ -65,9 +65,24 @@ export function displayPictureInput() {
     })
 }
 
+const formTitle = document.getElementById('titleProject')
+const formCategory = document.getElementById('categorySelect')
+const formPicture = document.getElementById('filePicture')
+
+export function changeColor() {
+    console.log(formTitle.value)
+    console.log(formCategory.value)
+    console.log(formPicture.files[0].name)
+    console.log(formPicture.files[0].size)
+    if (formTitle.value && !formCategory.value === 0 & (/\.(jpg|png)$/i.test(formPicture.files[0].name) === true || formPicture.files[0].size < 4194304)) {
+        document.getElementById('changeColor').classList.remove('greyBackground')
+    }
+}
+
 export default {
     showCardProject,
     categoryFilters,
     modalPictures,
     displayPictureInput,
+    changeColor,
 }
