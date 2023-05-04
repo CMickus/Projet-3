@@ -73,30 +73,6 @@ export async function del(url,token) {
 
 }
 
-export function sendData(data) {
-    console.log('Sending data');
-
-    const XHR = new XMLHttpRequest();
-
-    const urlEncodedDataPairs = [];
-
-    for (const [name, value] of Object.entries(data)) {
-        urlEncodedDataPairs.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
-    }
-    XHR.addEventListener('load', (event) => {
-        alert('Success. Loading');
-    });
-    XHR.addEventListener('error', (event) => {
-        alert('Error');
-    });
-
-    XHR.open('POST', 'https://example.com/cors.php');
-
-    XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    XHR.send(urlEncodedData);
-}
-
 export default {
     get,
     post,

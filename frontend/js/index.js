@@ -20,12 +20,8 @@ async function initialisation() {
 	document.querySelector('.filters').addEventListener('click', (event) => {
 		const button = event.target;
 		let projectfilter = [];
-		/*propagation des evenements check doc*/
-		console.log(button.nodeName)
 		if (button.nodeName === 'BUTTON') {
 			const id = parseInt(button.id)
-			console.log(button)
-			console.log(id)
 			if (id != 0) {
 				Filter.active(button);
 			} else {
@@ -36,12 +32,10 @@ async function initialisation() {
 			} else {
 				document.querySelectorAll('.buttonstyle').forEach((filterbutton) => {
 					const filterid = parseInt(filterbutton.id);
-					console.log(filterid)
 					if (filterbutton.classList.contains('active')) {
 						projectfilter = projectfilter.concat(projects.filter((project) => project.categoryId === filterid));
 					}
 				})
-				console.log(projectfilter)
 			}
 			Display.showCardProject(projectfilter);
 		}
@@ -64,18 +58,14 @@ async function initialisation() {
 
 	Display.modalPictures(projects);
 
-	//document.querySelector
-	document.querySelectorAll('.modalScript').forEach(element => {
-		element.addEventListener('click', /*() =>{
-      if (element.classList.contains('modal2')){
-        Modal.closeModal(element)
-      }*/
-			Modal.openModal);
+	document.querySelector('#portfolio a').addEventListener('click',()=>{
+		Modal.openModal();
 	})
 
 	document.querySelectorAll('.modalScriptChange').forEach(element =>{
-		element.addEventListener('click', 
-			Modal.changeModal)
+		element.addEventListener('click', (event)=>{
+			Modal.changeModal(event);
+		})
 	})
 
 	window.addEventListener('keydown', event => {
@@ -84,22 +74,18 @@ async function initialisation() {
 		}
 	})
 
-
 	document.querySelector('.projectPictures').addEventListener('click', event => {
-		console.log(event.target)
 		const button = event.target;
 		if (button.dataset.id != undefined) {
-			//console.log(button.dataset.id)
 			const userToken = localStorage.getItem('token');
 			RequestAPI.del("http://localhost:5678/api/works/" + button.dataset.id, userToken)
-			// pour récupérer les données supprimer le database.sqlite
 		}
-		//RequestAPI.del("http://localhost:5678/api/works/"+target.dataSet.id);// l'evenement est tjrs le 1er target c'est ce qur quoi j'ia appuié
 	})
 
 
 	document.getElementById('addFilePicture').addEventListener('click', (event) => {
 		event.preventDefault();
+		console.log(event)
 		document.getElementById('filePicture').click();
 		Display.displayPictureInput();
 	})
@@ -110,11 +96,6 @@ async function initialisation() {
 	document.querySelector('.modalInputs').addEventListener('submit', async (event) => {
 		console.log(document.querySelector('.modalInputs'))
 		event.preventDefault();
-		/*const project = { image: document.getElementById('filePicture').files[0],
-			title: document.getElementById('titleProject').value,
-			category: document.getElementById('categorySelect').value,
-			// pour catégorie récupéré l'id de la category faire attentin a ne pas envoyer le nom string humain de la cat
-		};*/
 		let projectData = new FormData();
 		const formTitle = document.getElementById('titleProject')
 		const formCategory = document.getElementById('categorySelect')
@@ -134,7 +115,7 @@ async function initialisation() {
 		}
 		if (/\.(jpg|png)$/i.test(formPicture.files[0].name) === false || formPicture.files[0].size > 4194304) {
 			document.querySelector('.errorPicture').innerHTML = "Mauvais type de fichier ou ficher trop lourd";
-			//formPicture.reset();
+			formPicture.reset();
 		}
 		const userToken = localStorage.getItem('token');
 		console.log(formTitle.checkValidity())
@@ -154,10 +135,15 @@ async function initialisation() {
 	const formCategory = document.getElementById('categorySelect')
 	const formPicture = document.getElementById('filePicture')
 
-	formTitle.addEventListener('input', Display.changeColor)
-	formCategory.addEventListener('input', Display.changeColor)
-	formPicture.addEventListener('input', Display.changeColor )
+	formTitle.addEventListener('input', ()=>{
+		Display.changeColor();
+	})
+	formCategory.addEventListener('input',()=>{
+		Display.changeColor();
+	})
+	formPicture.addEventListener('input',()=>{
+		Display.changeColor();
+	})
 
 }
-/*allButton.addEventListener('click',Filter.activeAll)*/
 initialisation();

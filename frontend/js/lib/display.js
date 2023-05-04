@@ -15,7 +15,7 @@ export function modalPictures(projects) {
         htmlPictures += `<figure categoryId="${project.categoryId}">
         <div class="iconproject">
         <button class="iconProjectStyle projectDelete" data-id="${project.id}"> 
-        <i class="fa-solid fa-trash-can"></i>
+        <i class="fa-solid fa-trash-can" data-id="${project.id}"></i>
         </button>
         </div>
         <img src="${project.imageUrl}" alt="${project.title}">
@@ -71,9 +71,9 @@ const formPicture = document.getElementById('filePicture')
 export function changeColor() {
     console.log(formTitle.value)
     console.log(formCategory.value)
-    console.log(formPicture.files[0].name)
-    console.log(formPicture.files[0].size)
-    if (formTitle.value && !formCategory.value === 0 & (/\.(jpg|png)$/i.test(formPicture.files[0].name) === true || formPicture.files[0].size < 4194304)) {
+    //console.log(formPicture.files[0].name)
+    //console.log(formPicture.files[0].size)
+    if (formTitle.value && !formCategory.value === 0) {
         document.getElementById('changeColor').classList.remove('greyBackground')
     }
 }

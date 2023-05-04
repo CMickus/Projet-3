@@ -20,32 +20,31 @@
 		<a class="addProject">Mode édition</a>
 		<button class="publish">Publier les changements</button>
 	</div>
-	<aside id="modal" class="modalScript modalStopScript"  aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
-		<div class="modal modal1 modalTop modalStopScript" id="modal1">
-			<div class="modalStyle modalStopScript">
-				<button
-					class="modalCloseScript modalCloseStyle"><!--cacher le input et transformé le label enfaux boutton-->
+	<aside id="modal" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
+		<div class="modal modal1 modalTop" id="modal1">
+			<div class="modalStyle">
+				<button class="modalCloseStyle">
 					<span class="modalCloseText">Fermer la boite modale</span>
-					<i class="fa-solid fa-xmark"></i>
+					<i class="fa-solid fa-xmark modalClose"></i>
 				</button>
 				<h1 class="modalTitle">Galerie photo</h1>
 				<div class="projectPictures"></div>
 				<div class="modalButtons">
-					<button class="addPicture modal2 modalScriptChange" href="#modal2">Ajouter une photo</button>
+					<button class="addPicture modal2 modalScriptChange" id="changeToModal2">Ajouter une photo</button>
 					<button class="deletePicture">Supprimer la galerie</button>
 				</div>
 			</div>
 		</div>
-		<div class="modal modalScript modalStopScript modal2 modalBottom" id="modal2">
-			<div class="modalStyle modalStopScript">
+		<div class="modal modal2 modalBottom" id="modal2">
+			<div class="modalStyle">
 				<div class="modalCloseButtonStyle">
-					<button class="modalScriptChange modalBackStyle">
-						<a href="#modal1"><i class="fa-solid fa-arrow-left"></i></a> 
+					<button class="modalBackStyle">
+						<i class="fa-solid fa-arrow-left" id="changeToModal1"></i>
 						<span class="modalCloseText">Retour arrière</span>
 					</button>
-					<button class="modalCloseScript modalCloseStyle">
-						<span class="modalCloseText">Fermer la boitemodale</span>
-						<i class="fa-solid fa-xmark"></i>
+					<button class="modalCloseStyle">
+						<span class="modalCloseText">Fermer la boite modale</span>
+						<i class="fa-solid fa-xmark modalClose"></i>
 					</button>
 				</div>
 				<h1 class="modalTitle">Ajout photo</h1>
@@ -73,10 +72,6 @@
 							<label for="categorySelect">Catégorie</label>
 							<select name="category" id="categorySelect" name="categorySelect"
 								class="modalInputButton modalSelectInput" required>
-								<!-- essayer de le creer dynamiquement mettre dans value l'id des category et le contenu name
-							pour la valeur vide faudra check qu'une category a bien été choisie
-							idem pour valider check que tout est demander-->
-
 							</select>
 							<p class="errorCategory"></p>
 						</div>
