@@ -110,7 +110,7 @@ async function initialisation() {
 		if (!formTitle.value) {
 			document.querySelector('.errorTitle').innerHTML = "Veuillez enregistrer un titre";
 		}
-		if (formCategory.value == 0) {
+		if (formCategory.value === 0) {
 			document.querySelector('.errorCategory').innerHTML = "Category invalide";
 		}
 		if (/\.(jpg|png)$/i.test(formPicture.files[0].name) === false || formPicture.files[0].size > 4194304) {
@@ -131,9 +131,9 @@ async function initialisation() {
 		}
 	})
 
-	const formTitle = document.getElementById('titleProject')
-	const formCategory = document.getElementById('categorySelect')
-	const formPicture = document.getElementById('filePicture')
+	const formTitle = document.getElementById('titleProject');
+	const formCategory = document.getElementById('categorySelect');
+	const formPicture = document.getElementById('filePicture');
 
 	formTitle.addEventListener('input', ()=>{
 		Display.changeColor();

@@ -71,9 +71,8 @@ const formPicture = document.getElementById('filePicture')
 export function changeColor() {
     console.log(formTitle.value)
     console.log(formCategory.value)
-    //console.log(formPicture.files[0].name)
-    //console.log(formPicture.files[0].size)
-    if (formTitle.value && !formCategory.value === 0) {
+    console.log(formPicture.files)
+    if (formTitle.value != 0 && formCategory.value != 0 && formPicture.files[0]) {
         document.getElementById('changeColor').classList.remove('greyBackground')
     }
 }
