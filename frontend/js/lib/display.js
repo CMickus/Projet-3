@@ -73,7 +73,9 @@ export function changeColor() {
     console.log(formCategory.value)
     console.log(formPicture.files)
     if (formTitle.value != 0 && formCategory.value != 0 && formPicture.files[0]) {
-        document.getElementById('changeColor').classList.remove('greyBackground')
+        document.getElementById('changeColor').classList.remove('greyBackground');
+    } else if (!document.getElementById('changeColor').classList.contains('greyBackground')){
+        document.getElementById('changeColor').classList.add('greyBackground');
     }
 }
 

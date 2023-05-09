@@ -82,7 +82,6 @@ async function initialisation() {
 		}
 	})
 
-
 	document.getElementById('addFilePicture').addEventListener('click', (event) => {
 		event.preventDefault();
 		console.log(event)
@@ -90,33 +89,23 @@ async function initialisation() {
 		Display.displayPictureInput();
 	})
 
-
-
-
 	document.querySelector('.modalInputs').addEventListener('submit', async (event) => {
-		console.log(document.querySelector('.modalInputs'))
+		//console.log(document.querySelector('.modalInputs'))
 		event.preventDefault();
+		if (document.getElementById('changeColor').classList.contains('greyBackground')){
+			return;
+		}
 		let projectData = new FormData();
 		const formTitle = document.getElementById('titleProject')
 		const formCategory = document.getElementById('categorySelect')
 		const formPicture = document.getElementById('filePicture')
-		console.log(formTitle.value)
+		/*console.log(formTitle.value)
 		console.log(formCategory.value)
-		console.log(formPicture.files[0])
+		console.log(formPicture.files[0])*/
 		projectData.append('image', formPicture.files[0]);
 		projectData.append('title', formTitle.value);
 		projectData.append('category', formCategory.value);
 		console.log(projectData)
-		if (!formTitle.value) {
-			document.querySelector('.errorTitle').innerHTML = "Veuillez enregistrer un titre";
-		}
-		if (formCategory.value === 0) {
-			document.querySelector('.errorCategory').innerHTML = "Category invalide";
-		}
-		if (/\.(jpg|png)$/i.test(formPicture.files[0].name) === false || formPicture.files[0].size > 4194304) {
-			document.querySelector('.errorPicture').innerHTML = "Mauvais type de fichier ou ficher trop lourd";
-			formPicture.reset();
-		}
 		const userToken = localStorage.getItem('token');
 		console.log(formTitle.checkValidity())
 		console.log(formPicture.checkValidity())

@@ -1,6 +1,5 @@
 let modal = null
 export function openModal() {
-    //event.preventDefault();
     const target = document.getElementById('modal');
     target.style.display = null;
     target.removeAttribute('aria-hidden');
@@ -18,10 +17,6 @@ export function openModal() {
 }
 
 export function closeModal(event) {
-    //if (modal === null) {
-      //  return
-    //}
-    //event.preventDefault();
     console.log('modal',modal.id, 'target', event.target.id);
     if (event.target.id ==='modal1' || event.target.id === 'modal2'){
         modal.style.display = 'none';
@@ -35,6 +30,9 @@ export function closeModal(event) {
         modal.removeAttribute('aria-modal');
         modal.removeEventListener('click', closeModal);
     }
+    const newImage = document.querySelector('.newImageProject');
+	newImage.src='';
+    document.querySelector(".pictureInput").style.display = 'flex';
 }
 
 export function changeModal(event) {

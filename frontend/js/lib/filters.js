@@ -1,10 +1,3 @@
-import RequestAPI from './requestAPI.js';
-/*export function changeValue(button) {
-    button.classList.toggle('active');
-}*/
-
-/*essayer avec un classList.toggle(active) plutot*/
-
 export function active(button) {
     const buttonAll= document.getElementById('0');
     const count = document.querySelectorAll(".active").length;
