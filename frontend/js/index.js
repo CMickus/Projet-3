@@ -4,7 +4,7 @@ import Filter from './lib/filters.js';
 import Modal from './lib/modal.js';
 
 async function initialisation() {
-	const projects = await RequestAPI.get('http://localhost:5678/api/works');
+	let projects = await RequestAPI.get('http://localhost:5678/api/works');
 	if (projects === -1) {
 		alert('Server Out!');
 		return
@@ -79,6 +79,12 @@ async function initialisation() {
 		if (button.dataset.id != undefined) {
 			const userToken = localStorage.getItem('token');
 			RequestAPI.del("http://localhost:5678/api/works/" + button.dataset.id, userToken)
+			//debugger;
+			console.log(button.dataset.id)
+			projects = projects.filter((project) => (project.id === parseInt(button.dataset.id)))
+			console.log(projects)
+			Display.showCardProject(projects);
+			Display.modalPictures(projects);
 		}
 	})
 
@@ -117,6 +123,14 @@ async function initialisation() {
 			document.querySelector('.modalInputs').reset();
 			const newImage = document.querySelector('.newImageProject');
 			URL.revokeObjectURL(newImage.src);
+			const projects = await RequestAPI.get('http://localhost:5678/api/works');
+			if (projects === -1) {
+				alert('Server Out!');
+				return
+			}
+			Display.showCardProject(projects);
+			Display.modalPictures(projects);
+			Modal.closeModal("closeModal")
 		}
 	})
 
@@ -133,6 +147,5 @@ async function initialisation() {
 	formPicture.addEventListener('input',()=>{
 		Display.changeColor();
 	})
-
 }
 initialisation();

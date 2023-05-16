@@ -17,7 +17,16 @@ export function openModal() {
 }
 
 export function closeModal(event) {
-    console.log('modal', modal.id, 'target', event.target.id);
+    //console.log('modal', modal.id, 'target', event.target.id);
+    if (event.target === undefined && event === "closeModal"){
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', true);
+        modal.removeAttribute('aria-modal');
+        modal.removeEventListener('click', closeModal);
+        const newImage = document.querySelector('.newImageProject');
+        newImage.src = '';
+        document.querySelector(".pictureInput").style.display = 'flex';
+    } else {
     if (event.target.id === 'modal1' || event.target.id === 'modal2') {
         modal.style.display = 'none';
         modal.setAttribute('aria-hidden', true);
@@ -35,7 +44,8 @@ export function closeModal(event) {
         const newImage = document.querySelector('.newImageProject');
         newImage.src = '';
         document.querySelector(".pictureInput").style.display = 'flex';
-    }
+    }}
+    
 }
 
 export function changeModal(event) {
