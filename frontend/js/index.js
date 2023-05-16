@@ -81,10 +81,11 @@ async function initialisation() {
 			RequestAPI.del("http://localhost:5678/api/works/" + button.dataset.id, userToken)
 			//debugger;
 			console.log(button.dataset.id)
-			projects = projects.filter((project) => (project.id === parseInt(button.dataset.id)))
+			projects = projects.filter((project) => (project.id !== parseInt(button.dataset.id)))
 			console.log(projects)
 			Display.showCardProject(projects);
 			Display.modalPictures(projects);
+			Modal.closeModal("closeModal")
 		}
 	})
 
